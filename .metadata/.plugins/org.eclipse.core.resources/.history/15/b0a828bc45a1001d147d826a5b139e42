@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+   td{text-align:center;}
+   /*
+    2023-01-31
+	[1단계:개념] 1. 부트스트랩의 모달창 로딩 방식을 예제를 통해 기술하세요 
+	[1단계:확인] 2. 사원 아이디로 사원 정보를 json데이터로 로딩을 위한 DB및 controller단 get방식 처리를 하세요
+	[1단계:확인] 3. salgrade 테이블을 ajax로 로딩된 데이터를 출력하고, 행별 등급을 클릭시, 등급상세화면이 ajax로 로딩되게 처리하세요.
+	[1단계:확인] 4. 부서 상세화면에서 ajax로 부서정보를 수정/삭제 처리하세요.
+	[1단계:개념] 5. vue의 개발환경을 위한 설정 방법을 기술하세요.
+	[1단계:확인] 6. vue의 MVVM패턴을 이용하여 모델로 선언한 name, age, loc를 통해서 화면에 이름 나이 사는 곳에 출력되게하세요.
+	*/
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+      $("h2").text("부서정보 ajax조회")
+   });
+</script>
+</head>
+<body>
+
+<div class="container">
+   <div class="jumbotron text-center">
+     <h2 ></h2>
+   </div>
+   <form id="frm01" class="form-inline"  method="post">
+     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+       <input name="dname" class="form-control mr-sm-2" placeholder="부서명" />
+       <input name="loc"  class="form-control mr-sm-2" placeholder="부서위치" />
+       <button class="btn btn-info" type="button">Search</button>
+    </nav>
+   </form>
+   <table class="table table-hover table-striped">
+      <col width="10%">
+      <col width="50%">
+      <col width="15%">
+      <col width="15%">
+      <col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>   
+    <tbody>
+       <tr><td></td><td></td><td></td><td></td><td></td></tr>
+       <tr><td></td><td></td><td></td><td></td><td></td></tr>
+       <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+   </table>       
+</div>
+</body>
+</html>

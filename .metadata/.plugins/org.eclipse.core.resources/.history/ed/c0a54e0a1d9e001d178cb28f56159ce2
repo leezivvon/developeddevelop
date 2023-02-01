@@ -1,0 +1,12 @@
+package springweb.a02_homwork;
+// 230127과제
+
+import java.util.List;
+
+import springweb.z01_vo.Member;
+
+public interface Z13_HWMemberDao {
+	
+	// 2,3 조회 
+	public List<Member> getHWMemList(Member sch);
+}

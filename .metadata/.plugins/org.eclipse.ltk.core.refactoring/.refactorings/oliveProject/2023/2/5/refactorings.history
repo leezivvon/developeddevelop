@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;oliveProject/src/main/webapp/csboard.jsp&apos; to &apos;oycs.jsp&apos;" description="Rename resource &apos;csboard.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/csboard.jsp" name="oycs.jsp" stamp="1675252834152" updateReferences="true"/>
+</session>

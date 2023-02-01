@@ -1,0 +1,11 @@
+package springweb.a05_mvc.a03_dao;
+
+import java.util.List;
+
+import springweb.z01_vo.Dept;
+
+public interface A02_DeptDao {
+	// 메서드 선언
+//	public String myDeptList(); 땡..!!
+	public List<Dept> getDeptList(Dept sch);
+}

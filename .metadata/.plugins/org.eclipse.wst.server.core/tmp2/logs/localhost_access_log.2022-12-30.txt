@@ -1,0 +1,6 @@
+127.0.0.1 - - [30/Dec/2022:23:00:53 +0900] "GET / HTTP/1.1" 404 479
+0:0:0:0:0:0:0:1 - - [30/Dec/2022:23:01:00 +0900] "GET /ZzimGgong/ljw/pg3004.html HTTP/1.1" 200 3571
+0:0:0:0:0:0:0:1 - - [30/Dec/2022:23:01:00 +0900] "GET /ZzimGgong/index_markup/reset.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Dec/2022:23:01:00 +0900] "GET /ZzimGgong/index_markup/img/main_logo.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Dec/2022:23:01:00 +0900] "GET /ZzimGgong/index_markup/img/myPageImg.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Dec/2022:23:01:01 +0900] "GET /favicon.ico HTTP/1.1" 404 479

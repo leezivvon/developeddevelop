@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+</head>
+<body>
+
+	<h2 onclick="call()">서버데이터 호출</h2>
+	<div id="container"></div>
+	
+	
+</body>
+<script type="text/javascript">
+//화면리프레시가 이루어지지 않고 동기적.
+	function call(){
+		var xhr = new XMLHttpRequest()
+		xhr.open("get", "z02_data.jsp", false) // 내장객체로 
+		xhr.send()
+		document.querySelector("#container").innerText =xhr.responseText
+	}
+
+
+	
+//
+</script>
+</html>

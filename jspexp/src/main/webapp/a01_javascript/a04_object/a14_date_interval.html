@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+<style type="text/css">
+/*
+
+*/
+</style>
+
+</head>
+<body>
+
+
+	<div id="container"></div>
+	
+	
+</body>
+<script type="text/javascript">
+/*
+# Date 객체의 시간간격에 대한 처리
+1. getTime()를 통해서 1970/1/1 기준으로 1/1000시간을 가져올 수 있다
+	우리나라 GMT +9:00
+
+
+*/
+
+var div = document.querySelector("#container")
+var show = ""
+
+var d1 = new Date(1971, 0, 1)
+show += "1971/1/1의 getTime(): "+d1.getTime()+"<br>"
+var d2 = new Date()
+show += "현재의 getTime(): "+d2.getTime()+"<br>"
+
+var d3 = new Date(2022,11,02,15,22,00) //2022년12월2일3시22분00초
+show += "2022년12월2일 3시22분00초의 getTime(): "+d3.getTime()+"<br>"
+var d4 = new Date(2022,11,02,15,22,01)
+show += "2022년12월2일 3시22분01초의 getTime(): "+d4.getTime()+"<br>"
+show += "d3와 d4의 차이: "+( d4.getTime()-d3.getTime() )+"밀리세컨드<br>" //1000차이
+
+var d5 = new Date(2023,2,22,18,00) // 수료일
+show += "2023/3/22 18:00(수료일)의 getTime(): "+d5.getTime()+"<br>"
+var diff = d5.getTime() - d2.getTime()
+show += "현재시간과 수료일의 차이(1/1000) getTime(): "+diff+"<br>"
+show += "현재시간과 수료일의 차이(초단위) getTime(): "+parseInt(diff/1000)+"<br>"
+show += "수료일까지 남은 시간(분단위) getTime(): "+parseInt(diff/1000/60)+"<br>"
+show += "수료일까지 남은 시간(시단위) getTime(): "+parseInt(diff/1000/60/60)+"<br>"
+show += "수료일까지 남은 시간(일단위) getTime(): "+parseInt(diff/1000/60/60/24)+"<br><br>"
+
+
+
+
+//ex 과정시작: 2022/8/29  오늘 날짜기준으로 진행한 날 수 계산 출력
+var stDate = new Date(2022,7,29,9,0)
+var nowDate = new Date()
+var goingDate = nowDate.getTime() - stDate.getTime()
+show += "오늘까지 수업 진행일자: "+parseInt(goingDate/1000/60/60/24)+"일<br>" //95일
+
+div.innerHTML = show
+
+</script>
+</html>

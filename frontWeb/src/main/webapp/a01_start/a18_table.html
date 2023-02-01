@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	td{text-align:center;} /* css로 글자들을 중앙정렬  td에는 align속성이 없음 */
+						   /* 일반적으로 기본으로 중앙정렬을 하면 가독성이 좋고 
+						   	  보다 세밀하게 하려면 cellpadding옵션과 함께 코드성데이터는 중앙정렬, 
+						   	  일반 문자열데이터는 왼쪽정렬, 숫자형 데이터의 경우 오른쪽 정렬을 처리한다 */							
+	th{background-color:yellow;color:green;border-bottom:3px double black;} 
+	tr:hover{background-color:tomato;} /* 마우스커서를 움직였을때 색깔바뀜 */
+	table{border-collapse:collapse;}
+	/* 
+	border : 2px double blue;
+		테두리에 대한 옵션을 굵기, 종류, 색상으로 설정함
+		border-bottom : 해당 th의 하단 부분에만 설정 옵션을 처리할 때 활용된다
+	
+	
+	테이블의 cell의 border는 이중의 2D형식의 라인이 default로 지원한다
+	이것을 한 줄로 하려면 css를 table 속성 border-collapse로 collapse 처리하여야한다
+	*/
+</style>
+</head>
+<body>
+
+<!--   
+# 테이블 기타 속성
+1. align : 전체 화면대비 정렬
+2. widdth="%" : 전체 화면대비 테이블의 폭을 %로 처리
+-->
+	<table align="center" cellpadding="5" cellspacing="5" border="1" width="80%">
+	<col width="15%"><col width="15%"><col width="15%"><col width="15%">
+
+		<tr><th>사원번호</th><th>사원명</th><th>직책</th><th>관리자번호</th>
+			<th>입사일</th><th>급여</th><th>보너스</th><th>부서번호</th></tr>
+		<tr><td>220310</td><td>이소피아</td><td>사원</td><td>79000</td>
+			<td>2016/03/14</td><td>3500</td><td>500</td><td>501</td></tr>
+		<tr><td>220310</td><td>김마리아</td><td>사원</td><td>79000</td>
+			<td>2016/03/14</td><td>3500</td><td>500</td><td>501</td></tr>
+		<tr><td>220310</td><td>한글라라</td><td>이사</td><td>-</td>
+			<td>2016/03/14</td><td>99000</td><td>9000</td><td>501</td></tr>		
+		
+	
+	</table>
+
+
+</body>
+</html>

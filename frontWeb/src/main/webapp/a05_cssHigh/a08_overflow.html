@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# overflow
+1. 지정된 화면의 크기보다 더 많은 내용을 컨테이너형 요소에 포함될 때 처리하는 속성 // 초과할때
+2. 속성값
+	hidden 	: 보이지 않게 처리
+	visible : 넘기에 보이게 처리  //default
+	scroll	: 스크롤 해서 보이게 처리
+*/
+
+		div{
+			width:100px; height:100px; border:1px solid greeen; margin:100px;
+		}
+		
+		div#opt01{
+			overflow:hidden;
+		}
+		div#opt02{
+			overflow:visible;
+		}
+		div#opt03{
+			overflow:scroll;
+		}
+/*
+ex) 물건에 대한 설명내용을 hidden과 scroll옵션을 통해서 처리하세요
+*/	
+		p{
+			width:130px; height:100px; border:2px solid red; margin-bottom:10px;
+		}
+		p#opt04{
+			overflow:hidden;
+		}
+		p#opt05{
+			overflow:scroll;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h3>기본</h3>
+		안녕하세요  안녕하세요  안녕하세요  안녕하세요  안녕하세요  안녕하세요  안녕하세요  안녕하세요    
+	</div>
+	
+	<div id="opt01">
+		<h3>hidden</h3>
+		안녕하세요  안녕하세요  안녕하세요  안녕하세요  안녕하세요  안녕하세요  안녕하세요  안녕하세요   
+	</div>
+	
+	<div id="opt02">
+		<h3>visible</h3>
+		안녕하세요  안녕하세요  안녕하세요  안녕하세요  안녕하세요  
+		안녕하세요  안녕하세요  안녕하세요  
+	</div>
+	
+	<div id="opt03">
+		<h3>scroll</h3>
+		안녕하세요  안녕하세요  안녕하세요  안녕하세요  안녕하세요  
+		안녕하세요  안녕하세요  안녕하세요
+	</div>
+	
+	
+	<h3>예제</h3>
+	<p id="opt04">
+		 무슨 과일설명이야 시발 무슨 과일설명이야 시발
+		 무슨 과일설명이야 시발 무슨 과일설명이야 시발
+		 무슨 과일설명이야 시발 무슨 과일설명이야 시발
+	</p><br>
+	
+	<p id="opt05">
+		 무슨 과일설명이야 시발 무슨 과일설명이야 시발
+		 무슨 과일설명이야 시발 무슨 과일설명이야 시발
+		 무슨 과일설명이야 시발 무슨 과일설명이야 시발
+	</p>
+</body>
+</html>

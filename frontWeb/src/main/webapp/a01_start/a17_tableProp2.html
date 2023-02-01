@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  
+# 테이블 속성
+1. cellpadding
+	cell의 글자와 border(셀의 구분자)와의 간격 설정
+2. cellspacing
+	내부 border의 굵기를 지정한다	
+-->	
+	<table cellpadding="15" 
+		   cellspacing="2"
+		   border="2" width="200" height="200">
+		<col width="50%" height="50%">
+		<tr><td>사과</td><td>바나나</td></tr>
+		<tr><td>딸기</td><td>포도</td></tr>
+	</table><br>
+
+<!-- 
+ex) 사원정보(emp) 테이블을 위 테이블 속성을 이용해서 3개 정도 데이터를 출력하세요
+ -->	
+	<table cellpadding="10"
+		   cellspacing="5"
+		   border="2" width="300" height="100">
+	<col width="30%" height="3/100%">	
+	<col width="40%" height="3/100%">
+	<col width="30%" height="3/100%">   
+	<caption>사원정보테이블</caption>
+	<thead>
+		<tr><td>사원번호</td><td>사원명</td><td>부서번호</td></tr>
+	</thead>
+	<tbody>
+		<tr><td>220310</td><td>이소피아</td><td>501</td></tr>
+		<tr><td>160601</td><td>김마리아</td><td>603</td></tr>
+		<tr><td>190820</td><td>박헤레나</td><td>708</td></tr>
+	</tbody>	
+	</table>
+	
+	
+	
+	
+</body>
+</html>

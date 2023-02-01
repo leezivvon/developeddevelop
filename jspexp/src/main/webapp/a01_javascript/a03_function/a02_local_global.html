@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+<style type="text/css">
+/*
+
+*/
+</style>
+
+<script type="text/javascript">
+/*
+# 전역변수 사용과 지역변수 사용은 절대적인 개념보다 상대적인 개념이다
+1. 대상 중괄호({})가 포함되는 특정한 범위가 있는 코드에서 사용된다
+	if, for, while, function, class 등
+2. 계층적으로 범위를 지정하면 이 블럭 외부에 선언된 변수는 전역변수
+	내부에 선언되어 활용되는 변수는 지역변수 개념으로 사용된다
+3. js초기 버전에서 사용되는 var 변수는 전역변수개념으로 지역변수개념을 고려하지 않고 사용하다가
+	코딩의 필요성에 따라 let이라는 구분 변수 선언으로 지역변수와 전역변수를 구분하여 사용하게 되었다(ecma6)
+*/	
+	var buyList=""//전역변수 구매한 물건
+	// 전역변수는 함수가 호출될 때마다 함수에서 처리한 데이터를 누적하는 경우 많이 활용된다
+	
+	// obj 상위변수  	>> 	onclick="XX(this)"	사용가능
+	// 임의로 변수사용 	>> 	onclick="XX(this)"	사용불가능
+	function buy(obj){
+		buyList+=obj.innerText+" "	//전역변수에 할당 누적해서 처리한다
+		
+		// 이 내용은 아래와 같이 처리하면 초기화 된다 // 지역변수
+		// 지역변수는 함수에서 처리된 데이터를 누적처리하지 못한다
+		let blist = obj.innerText+" "
+		var h4Obj = document.querySelector("h4") // 지역변수(초기화O)
+		h4Obj.innerHTML = "구매한 물건: "+blist
+		
+		var h3Obj = document.querySelector("h3") // 전역변수(초기화X)
+		h3Obj.innerHTML = "구매한 물건: "+buyList
+
+
+	}
+	
+// 예제 1단계	3X3 테이블에 점심메뉴9가지를 리스트하고 클릭시마다 하단 p에 출력이 되게하세요
+	var lunchList=""
+	function lunch(menu){
+//		lunchList+=menu.innerText+"/ "
+//		var pObj = document.querySelector("p");
+//		pObj.innerHTML = "점심메뉴_ "+lunchList;
+
+		lunchList+=menu+" "
+		document.querySelector("p").innerText="선택한 점심메뉴: "+lunchList
+	}
+
+// 예제 2단계	3X3 테이블에 점심메뉴/가격 9가지를 리스트하고 클릭시마다 하단 p에 출력(메뉴와 합산 금액이 표시)되게 하세요
+	var lunchList02=" ";
+	var tot=0;
+	function lunch02(menu, price){
+
+		lunchList02+=menu+" "
+		tot+=price
+		document.querySelector("p").innerText="총비용:"+tot+",  선택한 메뉴: "+lunchList02
+	}
+	
+</script>
+</head>
+
+<body>
+	<h2 onclick="buy(this)">사과</h2>
+	<h2 onclick="buy(this)">바나나</h2>
+	<h2 onclick="buy(this)">딸기</h2>
+	<h3></h3>
+	<h4></h4>
+	
+	<!-- 예제1 -->
+	<h2>예제1-점심메뉴</h2>
+	<table>
+		<tr><td onclick="lunch(this)">돈까스</td><td onclick="lunch('우동')">우동</td><td onclick="lunch('카레')">카레</td></tr>
+		<tr><td onclick="lunch('라멘')">라멘</td><td onclick="lunch('파스타')">파스타</td><td onclick="lunch('스테이크')">스테이크</td></tr>
+		<tr><td onclick="lunch('만둣국')">만둣국</td><td onclick="lunch('만두칼국수')">만두칼국수</td><td onclick="lunch('짜장면')">짜장면</td></tr>
+	</table>
+	<p></p>
+	
+	<!-- 예제2 -->
+	<h2>예제2-점심메뉴&가격</h2>
+	<table>
+		<tr><td onclick="lunch02('돈까스', 10000)">돈까스 10000원</td><td onclick="lunch02('우동', 7000)">우동 7000원</td><td onclick="lunch02('카레', 12000)">카레 12000원</td></tr>
+		<tr><td onclick="lunch02('라멘', 9500)">라멘 9500원</td><td onclick="lunch02('파스타', 13000)">파스타 13000원</td><td onclick="lunch02('스테이크', 21000)">스테이크 21000원</td></tr>
+		<tr><td onclick="lunch02('만둣국', 9000)">만둣국 9000원</td><td onclick="lunch02('만두칼국수', 9000)">만두칼국수 9000원</td><td onclick="lunch02('짜장면', 7500)">짜장면 7500원</td></tr>
+	</table>
+	<p></p>
+
+</body>
+
+<script type="text/javascript">
+/*
+# 함수의 지역변수와 전역변수 처리
+1. 함수는 전역적으로 처리하는 내용을 함수선언 밖에서 선언하여 처리한다
+2. 지역변수와 전역변수를 구분할 때는 let 변수를 활용한다
+*/
+//
+</script>
+</html>

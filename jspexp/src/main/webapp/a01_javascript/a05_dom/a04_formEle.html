@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+<style type="text/css">
+/*
+
+*/
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+
+	<div id="container"></div>
+	<input type="text" name="num01"/>
+	<input type="text" name="num02" value="0"/>
+	<input type="button" value="합산" onclick="cal()">
+	<p id="show"></p>
+
+	<!-- ex -->
+	<h2>학생 성적 등록</h2>
+	이름: <input type="text" name="sname"/>
+	국어: <input type="text" name="kor" value="0"/>
+	영어: <input type="text" name="eng" value="0"/>
+	수학: <input type="text" name="math" value="0"/>
+	<input type="button" value="등록" onclick="reg()">
+	<table id="recTab">
+	<thead>
+		<tr><th>이름</th><th>국어</th><th>영어</th><th>수학</th></tr>
+	</thead>
+	<tbody>
+	
+	</tbody>
+	</table>
+</body>
+
+
+<script type="text/javascript">
+	var num01Obj = document.querySelector("[name=num01]") //임의로 숫자할당
+	var num02Obj = document.querySelector("[name=num02]") //브라우저에서 작성
+	var pObj = document.querySelector("#show")
+	
+	num01Obj.value = Math.floor(Math.random()*8+2)	
+
+	function cal(){
+		// 이벤트 시점에서 값을 가져오는 내용이 있을 때가 많음으로 DOM객체는 객체로만 선언하고 
+		// 이벤트 처리 시 에 value로 입력된 데이터를 가져올 수 있도록 한다
+		var num01 = Number(num01Obj.value);
+		var num02 = Number(num02Obj.value);
+		var sum = num01 + num02;
+		pObj.innerText = num01 +" + "+num02+" = "+sum
+	}
+	
+	// ex 학생 성적 등록
+	//	  학생명, 국어, 영어, 수학 점수를 form요소객체로 입력하게 하고 등록버튼을 클릭 시 하단에 table추가등록되게 
+	var snameObj = document.querySelector("[name=sname]")
+	var korObj = document.querySelector("[name=kor]")
+	var engObj = document.querySelector("[name=eng]")
+	var mathObj = document.querySelector("[name=math]")
+	var tObj =  document.querySelector("#recTab tbody")
+	
+	function reg(){
+		tObj.innerHTML +="<tr><td>"+snameObj.value+"</td><td>"+korObj.value+
+						"</td><td>"+engObj.value+"</td><td>"+mathObj.value+"</td></tr>";
+		snameObj.value=""; snameObj.focus();				
+		korObj.value=""; engObj.value=""; mathObj.value=""; //등록하고나면 input박스 비워두는거		
+	}
+	
+	
+/*
+# form객체의 내용을 통한 js 요소객체처리
+1. form하위 요소객체의 특징
+	1) 선택자 : name, id
+		document.querySelector("[name=속성값]")
+		document.querySelector("#아이디명")
+	2) 속성값변경 : value를 통해서 처리
+		dom01.value
+		dom01.value = "할당처리"
+*/
+
+</script>
+</html>

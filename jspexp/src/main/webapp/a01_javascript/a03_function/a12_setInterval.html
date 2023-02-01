@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+/*
+
+*/
+</script>
+</head>
+<body>
+
+	<h1 id="countdown" onclick="int02">카운트다운 시작(click)</h1>
+	
+	<div id="container"></div>
+	
+</body>
+<script type="text/javascript">
+/*
+# setInterval
+1. 특정한 시간단위로 반복해서 수해할 내용이 있을 때 처리하는 함수
+2. 기본형식
+	setInterval(function(){ 반복할 내용 }, 1/1000)
+3. 중단 처리
+	해당 내용을 변수로 지정해서 clearInterval(int01)로 하면 중단이 된다
+*/
+/*
+var div = document.querySelector("#container")
+var cnt = 1
+var int01 = setInterval(function(){
+							div.innerHTML+=(cnt++)+"번째 안녕하세요<br>"
+								if(cnt > 10){
+									clearInterval(int01)
+									alert("완료")
+								}
+						}, 1000)
+*/
+
+// ex) 출력하시겠습니까? 클릭하면 h1으로 카운트다운 10 ==> 9 == .. ==> 0이 되었을 때 발사로 출력되게 하세요
+var h1 = document.querySelector("#countdown")	
+var cnt = 10
+var int02 = setInterval(function(){
+							h1.innerHTML= "카운트다운: "+(cnt--)
+							if(cnt<0){
+								clearInterval(int02)
+								alert("happy New Year!!")
+							}
+						}, 1000)
+			
+</script>
+</html>

@@ -1,0 +1,19 @@
+package springweb.a05_mvc.a01_controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller("mydeptCtrl") //exisiting파일 에러나면 ("mydeptCtrl")추가
+public class A02_DeptController {
+	// 서비스단 연결
+	//@Autowired
+	
+	
+	// 메서드선언, view단 호출
+	//http://localhost:7080/springweb/myDeptList.do
+	@RequestMapping("myDeptList.do")
+	public String myDeptList() {
+		return "WEB-INF\\views\\a05_mvc\\a02_deptList.jsp";
+	}
+	
+}

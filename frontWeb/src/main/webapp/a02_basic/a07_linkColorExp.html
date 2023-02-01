@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type ="text/css">
+/* 
+태그명 : link	-모든 a태그에 적용 시, 선택자로 처리
+#아이디명 - id명으로 지정된 내용을 적용 시, 선택자로 처리
+.클래스 - class명으로 지정되 내용을 적용 시, 선택자로 처리
+*/
+	#test01:link{
+		color:pink;
+		text-decoration:none;
+	}
+	#test01:visited{
+		color:orange;
+	}
+	#test01:active{
+		color:blue;
+	}
+
+</style>
+</head>
+<body>
+
+<!--  
+ex) a07_linkColorExp.html
+	a01_start\a08_poem.html 기준으로 절대 주소로 링크하되
+	초기색상, 링크 후 색상, 클릭 시 색상을 빨 노 파로 변경하여 출력 
+-->
+
+<h2>링크 만들기</h2>
+<hr>
+<ul>
+	<li> <a id=test01 href="/a01_start/a08_poem.html">내부페이지(절대주소)시로 갑니다</a>
+</ul>
+
+
+</body>
+</html>

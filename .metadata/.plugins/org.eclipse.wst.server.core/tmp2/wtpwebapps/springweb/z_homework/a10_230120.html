@@ -1,0 +1,136 @@
+<!--  
+2023-01-20
+[1단계:개념] 1. mybatis 설정의 위해 container에서 설정할 내용을 기술하세요.
+[1단계:개념] 2. mybatis 설정의 위해 mybatis.Spring.xml에서 설정할 내용을 기술하세요
+[1단계:개념] 3. dao와 XXXMapper.xml의 연동 규칙을 기술하세요.
+[1단계:확인] 4. 단일 리턴값 처리 연습(아래와 같은 sql을 처리하는 dao와 mapper.xml을 구현하고  main()에서 호출하세요.
+      1) 최고 관리자 번호
+      2) 40번 부서의 최근 입사자의 입사일
+      3) 직책이 SALESMAN의 최저 급여
+      4) 연봉이 2000~4000 구간의 사원의 수
+      5) 1/4분기에 입사한 사원의 수
+[1단계:확인] 5. 단일 객체 처리 연습(아래와 같은 sql을 처리하는 dao와 mapper.xml을 구현하고  main()에서 호출하세요.
+      1) 직책이 MANAGER인 사원의 최고 급여자
+      2)#부서번호가 10인 부서정보 (Dept alias 등록 필요 - dept - 공통 mybatis에)
+      3) 사원명이 TURNER인 사원의 정보
+      4)#최초 입사자의 사원 정보 
+      5)#2/4분기 최고 급여자의 정보
+     
+5-2)
+-- 1. sql작성
+		select * dept100 where deptno=10;
+-- 2. vo Dept
+-- 3. dao
+		public Dept getDeptByDeptno()
+   4. mybatis.Spring.xml
+   		사용할 vo등록
+   		Dept
+   5. XXXXMapper.xml
+   		<select id="getDeptByDeptno" resultType="dept">
+   			select * dept100 where deptno=10
+   		</select>	
+     
+5-4)
+-- 1. sql
+	select * dept100 where hiredate=(select min(hiredaste) from emp100);	
+   2. vo
+   3. dao : public Emp getInitHire
+   4. mapper
+   	<select id ="getInitHire" resultType="emp">	
+   		select * dept100 where hiredate=(select min(hiredate) from emp100)
+   	</select>
+   	5. main()
+   		Emp initEmp = dao.getInitHire();
+   		System.out.print("최초입사자")	;
+   		System.out.print("사원번호"+initEmp.getEmpno())	;
+   		System.out.print("사원명"+initEmp.getEname())	;
+ 
+5-5)
+-- 1. sql
+		select * emp100 where sal=(select max(sal) from emp100 where to_char(hiredate. 'Q')='2');	
+   2. vo emp
+   3. dao : public Emp getMaxSalByTerms()
+   4. mapper
+   	<select id ="getMaxSalByTerms" resultType="emp">	
+   		select * emp100 where sal=(select max(sal) from emp100 where to_char(hiredate. 'Q')='2')
+   	</select>
+   	5. main()
+   		Emp = dao.getMaxSalByTerms();		
+   		
+   		
+   		
+   		
+   		
+1.
+1) mybatis연동
+ a. dbcp(database connection pool)선언 후 연결
+ b. mybatis 공통 xml( >>mybatis.Spring.xml )과 연결처리
+ 	src\main\java\resource\mybatis.Spring.xml << mybatis 공통 xml의 경로
+ 	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+  		<property name="dataSource" ref="dataSource"/> //name="dbcp id"
+  		<property name="configLocation" value="classpath:resource/mybatis.Spring.xml"/>
+	</bean>
+	
+2) mybatis에 의해 자동 생성 dao인터페이스 선언      
+       
+     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+     	 <property name="basePackage" value="springweb.a05_mvc.a03_dao"/>
+ 	 </bean> 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+   td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+      $("h2").text("부서정보 ajax조회")
+   });
+   
+</script>
+</head>
+<body>
+
+<div class="container">
+   <div class="jumbotron text-center">
+     <h2 ></h2>
+   </div>
+   <form id="frm01" class="form-inline"  method="post">
+     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+       <input name="dname" class="form-control mr-sm-2" placeholder="부서명" />
+       <input name="loc"  class="form-control mr-sm-2" placeholder="부서위치" />
+       <button class="btn btn-info" type="button">Search</button>
+    </nav>
+   </form>
+   <table class="table table-hover table-striped">
+      <col width="10%">
+      <col width="50%">
+      <col width="15%">
+      <col width="15%">
+      <col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>   
+    <tbody>
+       <tr><td></td><td></td><td></td><td></td><td></td></tr>
+       <tr><td></td><td></td><td></td><td></td><td></td></tr>
+       <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+   </table>       
+</div>
+</body>
+</html>

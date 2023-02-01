@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+<style type="text/css">
+/*
+
+*/
+</style>
+<script type="text/javascript">
+/*
+
+*/
+</script>
+</head>
+<body>
+
+	<div id="container"></div>
+	<h2>red</h2>
+	<h2>orange</h2>
+	<h2>yellow</h2>
+	<h2>green</h2>
+	<h2>blue</h2>
+	<h2>navy</h2>
+	<h2>purple</h2>	
+
+	
+</body>
+<script type="text/javascript">
+/*
+ex) h2 글자로 무지개 색상을 입력되어 있고 마우스 오버했을 때 배경색상을 지정했다가 
+	마우스 아웃 시 다시 워래 흰색 배경색상으로 변경되게 처리
+*/
+var h2s = document.querySelectorAll("h2")
+h2s.forEach(function(h2){
+	h2.onmouseover=function(){
+		//console.log(this.innerText)
+		this.style.backgroundColor=this.innerText//this.value가 아니라 this.innerText임
+	}
+	h2.onmouseout=function(){
+		this.style.backgroundColor=""
+	}
+	h2.onclick=function(){
+		div.innerText+=this.innerText+", "
+	}
+})
+
+var div = document.querySelector("#container")
+div.innerHTML=""
+//
+</script>
+</html>

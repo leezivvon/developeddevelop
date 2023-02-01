@@ -1,0 +1,16 @@
+package springweb.a02_homwork;
+
+import org.springframework.stereotype.Controller;
+
+@Controller//("memCtrl")
+public class Z13_HWMemberController {
+	
+	//service단 호출
+	
+	//메서드선언, view단 호출
+	//
+	@RequestMapping("hwMemberList.do")
+	public String hwMemberList(Member sch) {
+		return "WEB-INF\\views\\z01_homework\\a13_hw2memberList.jsp";
+	}
+}

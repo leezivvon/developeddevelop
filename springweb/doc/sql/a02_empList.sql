@@ -1,0 +1,31 @@
+select deptno, dname
+from dept100;
+
+SELECT DISTINCT e.mgr, m.ename
+FROM emp100 e, emp100 m
+WHERE e.mgr = m.empno;
+
+SELECT DISTINCT job
+FROM emp100;
+
+
+
+
+--ex1) emp10 보너스가 null인 데이터를 모두 1000으로 수정 처리하세요
+
+ UPDATE emp10
+ SET comm = 1000
+ WHERE comm IS NULL;
+
+
+
+SELECT id, name, AUTHORITY, point, registerdate 
+FROM member100
+WHERE NAME LIKE '%'||''||'%'
+AND AUTHORITY ='';
+
+SELECT DISTINCT authority auth FROM member100;
+
+--UPDATE MEMBER100 
+--SET AUTHORITY ='관리자'
+--WHERE AUTHORITY ='관계자';

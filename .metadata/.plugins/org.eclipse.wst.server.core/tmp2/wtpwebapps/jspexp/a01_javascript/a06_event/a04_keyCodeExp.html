@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+<style type="text/css">
+/*
+
+*/
+</style>
+<script type="text/javascript">
+/*
+
+*/
+</script>
+</head>
+<body>
+
+	아이디입력<input type="text" name="id"/>
+	<div id="container"></div>
+	
+	
+</body>
+<script type="text/javascript">
+/*
+ex) 위 아이디를 입력하고 enter를 입력했을 때(event.keyCode), 하단에 입력된 아이는 @@@입니다 출력
+	enter keycode:13
+	
+*/
+var idOb = document.querySelector("[name=id]")
+var div = document.querySelector("#container")
+idOb.onkeyup=function(){
+	if(event.keyCode==13) {
+		div.innerText = "입력된 아이디는 "+this.value+" 입니다."; //아스키코드 나옴
+	}
+}
+//innerText랑 innerHTML차이는?
+		
+
+
+//
+</script>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 배경 다루기
+1. 배경 색이나 이미지 지정
+	1) background-color : 배경색상
+	2) background-image : 배경이미지지정
+		ex) background-image:url("해당이미지(상대/절대주소)")	
+2. 배경 이미지의 위치
+	1) background-position : center center;
+		박스 중간에 이미지 출력
+3. 배경 이미지 반복 출력
+	1) background-repeat:repeat-y : 위에서 아래로 이미지 반복 출력	(y축으로만)		
+
+*/
+	div.cls01{
+		width:50%;
+		height:300px;
+		background-color:skyblue;
+		background-size:100px 100px;
+		background-image:url("./media/spongebob.png"); 
+		/*  .media : 현재 폴드에 media폴드가 있을 때 접근 처리
+			/media : webapp하위에 media로 절대 경로로 선언  */
+		background-repeat:no-repeat;
+		/*  배경이미지의 default는 반복(repeat)
+			no-repeat을 통해서 반복을 중단하고 repeat-x/repeat=y를 통해 반복을 x축과 y축으로 나누어서 처리 */
+		background-position:top center;
+		/*  배경이미지를 top/center/bottom
+					  left/center/right 옵션으로 처리할 수 있다  */	
+	}
+	
+	div.cls02{
+		width:200px; height:200px;
+		color:blueviolet;
+		font-size:16px;
+		
+	}
+	/* ex) 좋아하는 배경이미지를 다운받아 해당 내용(시/가사)과 함께 적절한 이미지 위치를 지정시켜 출력하세요  */
+	pre.poem{
+		width:325px; height:577px;
+		background-color:#99B2DD;
+		background-size:325px 577px;
+		background-image:url("./media/undersea.jpg");
+		background-repeat:no-repeat;
+		background-position:center left;
+		
+		color:white;
+		font-size:13px;
+	}
+	/* 정답 */
+	div.cls03{
+		width:80%; height:100%;
+		background:#ADB9E3;
+		background-size:640px 466px;
+		background-image:url("./media/peterpan.jpg");
+		background-repeat:no-repeat;
+		background-position: center right;
+		
+		color:#3F2E56;
+		font-size:15px;
+	}
+	
+
+	
+</style>
+</head>
+<body>
+	<div class="cls01">
+		안녕하세요 배경이미지 연습입니다
+		안녕하세요 배경이미지 연습입니다
+		안녕하세요 배경이미지 연습입니다
+		안녕하세요 배경이미지 연습입니다
+		안녕하세요 배경이미지 연습입니다
+		안녕하세요 배경이미지 연습입니다
+		안녕하세요 배경이미지 연습입니다
+		안녕하세요 배경이미지 연습입니다
+	</div>
+	<div class="cls02">
+		안녕하세요 배경이미지 연습입니다
+		안녕하세요 배경이미지 연습입니다
+		안녕하세요 배경이미지 연습입니다
+	</div>
+	
+	<br><hr>
+	<pre class="poem">
+	<br><br><br><br><br><br><br>
+	배꼽을 위한 연가
+	                  김승희
+	                
+	 인당수에 빠질 수는 없습니다.
+	 어머니,
+	 저는 살아서 시를 짓겠습니다
+	 
+	 공양미 삼백석을 구하지 못하여
+	 당신이 평생 어둡더라도
+	 결코 인당수에는 빠지지 않겠습니다.
+	 어머니,
+	 저는 여기 남아 책을 보겠습니다.
+	 
+	 나비여,
+	 나비여,
+	 애벌레가 나비로 날기 위하여
+	 누에고치를 버리는 것이 
+	 죄입니까?
+	 하나의 알이 새가 되기 위하여 
+	 껍질을 부수는 것이
+	 죄일까요?
+	  
+	 그 대신 점자책을 사드리겠습니다
+	 어머니,
+	 점자 읽는 법도 가르쳐 드리지요.
+	 
+	 우리의 삶은 모두 이와 같습니다.
+	 우리들 각자가 배우지 않으면 안되는
+	 외국어와 같은 것-
+	 어디에도 인당수는 없습니다.
+	 어머니,
+	 우리는 스스로 눈을 떠야 합니다.   
+	</pre>
+	
+	
+	<div class="cls03">
+		<h3>peterpan was right</h3>
+		I guess Peter Pan was right<br>
+		Growing up's a waste of time<br>
+		So I think I'll fly away
+		Set a course for brighter days<br>
+		Find the second star, I'm soarin'
+		And then straight on to the morn'<br>
+		I know that I'll be fine
+		'Cause I know Peter Pan was right<br>
+		Just a lost boy in a small town<br>
+		I'm the same kid but I'm grown now<br>
+		Try to make it out but I don't know how<br>
+		Wish that I was young, what have I become?<br>
+		Now it's late night and I'm at home<br>
+		So I make friends with my shadow<br>
+		And I play him all my sad, sad songs<br>
+		And we don't talk but he sings along like<br>
+		Ooh-ooh-oh-oh
+		Fairytales are not the truth
+		What am I supposed to do?
+		Mmm-mm-mm<br>
+		I guess Peter Pan was right<br>
+		Growing up's a waste of time
+		So I think I'll fly away<br>
+		Set a course for brightеr days<br>
+		Find the second star, I'm soarin'<br>
+		Then straight on to thе morn'<br>
+		I know that I'll be fine
+		'Cause I know Peter Pan was right<br>
+		Days feel like a blur now
+		Still feel 18, but I'm burnt out<br>
+		So I daydream of what I could be
+		If I turn back time to a storyline where<br>
+		My mom read me a tale where
+		A couple kids, one girl and a sailor<br>
+		Met a boy in green, I thought it'd be me<br>
+		But I guess that dream wasn't meant to be like<br>
+		Ooh-ooh-oh-oh
+		Fairytales are not the truth
+		What am I supposed to do?
+		Mmm-mm-mm<br>
+		I guess Peter Pan was right
+		Growing up's a waste of time<br>
+		So I think I'll fly away<br>
+		Set a course for brighter days<br>
+		Find the second star, I'm soarin'
+		Then straight on to the morn'<br>
+		I know that I'll be fine
+		'Cause I know Peter Pan was right<br>
+		And I don't care if I never land
+		'Cause the distant sky's always better than<br>
+		My life right now and the place I am<br>
+		So for one last time, I guess Peter Pan<br>
+		I guess Peter Pan was right
+		Growing up's a waste of time<br>
+		So I think I'll fly away
+		Set a course for brighter days<br>
+		Find the second star, I'm soarin'
+		Then straight on to the morn'<br>
+		I know that I'll be fine
+		'Cause I know Peter Pan was right
+	</div>
+	
+	
+</body>
+</html>

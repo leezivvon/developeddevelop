@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# fixed 옵션
+1. 특정 요소객체가 로딩 기준으로 스크롤 되더라도 특정한 위치에 계속 유지되게 처리하는 것을 말한다
+	( = 스크롤 내려도 안없어짐 계속 둥둥 떠다녀 )
+*/
+	#fixed{
+		position:fixed;
+		top:50px;left:50px;
+		width:100px;height:100px;
+		background:red;
+	}
+	/*
+	ex) 공지사항이라는 내용을 상단 중앙에 div로 설정하여 화면이 스크롤되더라도 계속 출력되게 처리하세요
+	
+		상단 중앙에 위치 시키려면 전체100%로 계산해서 해당 요소객체가 어느 정도%로 처리되는지 생각해야한다
+		==> width등 넓이나 높이 길이 등을 %로 하면 반응형이 되어서 브라우저나 단말기(핸드폰, 패드) 등에서도 적절하게 크기로 반응하게 된다ㄴ
+	*/
+	#ann{
+		position:fixed;
+		top:10px;left:40%; /* 정중앙에 - 위치는left:40%;  크기는width:20%*/
+		width:20%;height:40px;
+		background:pink;
+		
+	}
+</style>
+</head>
+<body>
+	<div id="ann">공지사항입니다</div>
+	<div id="fixed"></div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>다음내용<br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>다음내용<br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>다음내용<br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>다음내용<br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>다음내용<br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>다음내용<br><br>
+
+</body>
+</html>

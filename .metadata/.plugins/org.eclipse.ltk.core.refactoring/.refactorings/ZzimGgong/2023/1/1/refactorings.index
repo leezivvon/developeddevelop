@@ -1,0 +1,22 @@
+1672592290347	Rename resource 'pg3006_ex.jsp'
+1672626442115	Move file
+1672629571132	Delete element
+1672714474542	Move 'vo' to 'ljw'
+1672714545303	Rename resource 'Waiting.java'
+1672739159230	Rename resource 'pg3006_with.jsp'
+1672739407972	Rename resource 'pg0012.jsp'
+1672741241147	Rename resource 'pg3005.jsp'
+1672752214295	Rename resource 'WaitingDao2.java'
+1672758151903	Rename resource 'WaitingCcEnt.java'
+1672816227487	Rename resource 'pg0012.jsp'
+1672820772726	Rename resource 'pg3007_noenter.jsp'
+1672820783796	Rename resource 'pg3007_enter.jsp'
+1672820792575	Rename resource 'pg3007_NOenter.jsp'
+1672821137998	Rename resource 'WaitingStore.java'
+1672824001457	Rename resource '3004_resCnt.jsp'
+1672840386799	Rename resource 'pg3007_enterO.jsp'
+1672840396007	Rename resource 'pg3007_enterX.jsp'
+1672854334640	Rename resource 'Sch_editing.java'
+1672884586146	Rename resource 'Schh.java'
+1672907747664	Extract local variable 'userEmail2'
+1672907765346	Convert local variable 'userEmail2' to field

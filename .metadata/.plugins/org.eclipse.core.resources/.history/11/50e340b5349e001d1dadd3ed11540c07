@@ -1,0 +1,23 @@
+package springweb.a05_mvc.a02_service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import springweb.a02_homwork.Z13_HWMemberDao;
+import springweb.z01_vo.Member;
+
+@Service
+public class Z13_HWMemberService {
+	@Autowired
+	private Z13_HWMemberDao dao;
+	
+	// 230127과제#2,3
+	public List<Member> getHWMemList(Member sch){
+		if(sch.getName()==null) sch.setName("");
+		if(sch.getAuth()==null) sch.setAuth("");
+		
+		return dao.getHWMemList(sch);
+	}
+}

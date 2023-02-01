@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+
+</head>
+<body>
+
+<h2>아이디 중복확인(ajax로)</h2>
+<table>
+	<tr><th>아이디</th><td><input type="text" name="empno"/></td></tr>
+	<tr><td colspan="2"><input type="button" vlaue="중복확인" id="schBtn"/></td></tr>
+</table>	
+
+<br><hr><br>
+
+<div id="result">
+	<h4>*해당 아이디 중복 여부*</h4>
+</div>	
+	
+</body>
+<script type="text/javascript">
+
+	var empnoObj = document.querySelector("[name=empno]")
+	var schBtn = document.querySelector("#schBtn")
+	var show = document.querySelector("#result h4")
+	
+	empnoObj.onkeyup=function(){
+		if(event.keyCode==13) callAjax();
+	}
+	schBtn.onclick=function(){
+		callAjax();
+	}
+	
+	empnoObj.focus();
+	callAjax();
+	
+	function callAjax(){
+		var xhr = new XMLHttpRequest()
+		var empno = empnoObj.value
+		
+		var qsr = 
+	}
+
+
+</script>
+</html>

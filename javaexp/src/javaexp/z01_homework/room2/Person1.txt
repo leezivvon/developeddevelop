@@ -1,0 +1,3 @@
+<5번문제>
+이름	 ID	Password	Point
+1	1	1	1

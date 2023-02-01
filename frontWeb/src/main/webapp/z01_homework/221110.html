@@ -1,0 +1,351 @@
+<!--  
+2022-11-10
+[1단계:개념] 1. position의 속성에 따른 속성값의 차이를 기술하세요.
+[1단계:확인] 2. 화면 오른쪽 중앙 주요업무사항을 리스트한 내용을 화면이 스크롤링 되더라도 보일 수 있게 처리하세요.
+[1단계:개념] 3. visibility, display를 통해 보이지 않게 처리하는 속성값 내용과 이 둘간의 차이점을 기술하세요
+[1단계:확인] 4. a00_img폴드에 카드 관련 이미지를 오른쪽으로 리스트 보이게 하되 적절하게 겹치게 보이게 하시고
+               (z-index 활용) 및 클릭시, 카드가 보이지 않게 처리하세요.
+[1단계:개념] 5. 컨테츠형 태그(div,p)에서 해당 내용이 크기보다 넘칠 때, 처리하는 옵션을 기본예제를 통하여 설명하세요.
+[1단계:개념] 6. ul list-style-type의 여러 유형을 기술하세요.
+[1단계:확인] 7. 네비게이션 바에서 이미지가 있는 메뉴리스트(좌우)를 만들어 출력하세요. 
+[1단계:개념] 8. 테이블에서 사용되는 css설정 옵션을 기술하세요.
+[1단계:확인] 9. 부서정보 테이블을 오늘 배운 css 설정하여 화면에 출력하세요. 
+[1단계:개념] 10. form 요소 객체에서 사용되는 css 설정 옵션을 기술하세요.
+[1단계:확인] 11. 부서정보 등록 form을 form관련 css 설정하여 화면에 출력하세요. 
+[1단계:확인] 12. js의 화면 출력 형식 3가지를 기술하고, 차이점을 검색해보고 정리해보세요.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+	/* 2번 */
+	div#notice{
+		position:fixed;
+		top:20px; left:40%;
+		width:20%; height:200px;
+		background:green;
+		text-align:center;
+		color:white;
+	}
+	
+	/*4번*/
+	div.pro40{
+		display:block;
+		width:300px;height:300px;
+		border:3px solid black;
+		position:absolute;
+		top:500px;
+		right:20%;	
+	}	
+	div>#pro41{
+		width:50px; height:50px;
+		bottom:100px;
+		left:50px;
+		
+		z-index:1;
+	}
+	div>#pro42{
+		width:50px; height:50px;
+		bottom:100px;
+		right:70px;
+	}
+	div>#pro43{
+		width:50px; height:50px;
+		bottom:100px;
+		right:90px;
+	}
+	div>#pro43:hover{
+		visibility:hidden;
+	}
+	/* 4번 정답 */
+		img{width:100px;height:130px;position:absolute;}
+		img#pro41{left:0px;top:0px;}
+		img#pro42{left:30px;top:10px;}
+		img#pro43{left:60px;top:20px;}
+		img#pro44{left:90px;top:30px;}
+		
+		img:hover{ z-index:5;} /* 인덱스를 제일 높게 하면 마우스댈 때 카드가 다 보임 */
+		img:active{display:none;}
+	
+	
+	/* 7번 */
+	#pro07{background:pink;}
+	#pro07 ul{
+		/* 여백과 패딩 처리 */
+		margin:0;
+		padding:0;
+		width:70%;
+	}
+	#pro07 ul li{
+		display:inline-block;
+		list-style-type:none;
+		padding:0px 15px;
+		color:white;
+		text-align:center;
+	}
+	#pro07 ul li img{
+		text-decoration:none;
+		width:100px;height:70px;
+	}
+	/* 9번 */
+	table{
+		border-collapse:collapse;
+	}
+	th,td{
+		padding:5px;
+		height:15px;
+		text-align:right;
+		width:100px;
+	}
+	tbody tr:hover{
+		background:red;
+		color:white;
+	}
+	
+	/* 11번 */
+	#pro11 label{
+		display:block;
+		padding:5px;
+	}
+	#pro11 label span{
+		display:inline-block;
+		width:60px;
+		text-align:center;
+		padding:20px;
+	}
+	#pro11 input{
+		color:purple;
+		border:2px solid purple;
+		border-radius:5px;
+	}
+	#pro11 input:hover{
+		background:#CFC9E3;
+	}
+	#pro11 input[type=text]:focus{
+		font-size:120%;
+		border:4px solid purple;
+	}
+	</style>
+</head>
+<body>
+	<!-- 
+	1
+	position 박스의 배치
+	1. normal flow
+		1) 웹 페이지에 나타난 순서대로 html태그 배치
+		2) position 속성을 이용하여 normal flow 무시 가능
+	2. position속성값을 이용한 배치 방법
+		1) static 	: default - normal flow로 처리
+		2) relation : 상대 배치 - 현재 위치를 기준으로 x축 y축을 이동한다
+		3) absolute	: 절대 배치
+		4) fixed	: 고정 배치 - 화면 스크롤 상관없이 특정위치를 고수하는 것
+	3. 유동배치_float속성을 이용
+		1) float:left, float:right
+	4. position 속성을 사용할 때 태그의 위치와 크기 설정옵션
+		1) 위치 설정 : top, bottom, left, right
+				top(위에서부터 아래로 얼마나 내려오는지)
+				bottom(아래로부터 위로 얼마나 올라가는지)
+				left(왼쪽으로부터 오른쪽으로 떨어져있는지)
+				right(오른쪽으로부터 왼쪽으로 떨어져있는지)
+		2) 크기 : width, height
+	 -->
+	 <!-- 2 -->
+	 <h3>2번</h3>
+	 <div id="notice">
+	 	<h4>주요업무사항</h4>
+	 	<ul>
+	 		<li>아침먹기
+	 		<li>점심먹기
+	 		<li>간식먹기
+	 		<li>저녁먹기
+	 	</ul>
+	 </div>
+	 <br><br><br><br><br><br><br><br><br><br>
+	 <br><br><br><br><br><br><br><br><br><br>
+	 <br><br><br><br><br><br><br><br><br><br>
+	 <br><br><br><br><br><br><br><br><br><br>
+	 <br><br><br><br><br><br><br><br><br><br>
+	 
+	<!-- 
+	3
+	visibility, display를 통해 화면에서 보이지않게 처리하는데
+	visibility:hidden; 공간은 비워놓음 
+	display:none; 공간도 빼버림 
+	-->
+	
+	<!-- 4 -->
+	<h3>4번</h3>
+	<div class="pro40"> <!-- 정답풀이-div없앰 -->
+		<img src="/a00_img/spade-2.png" id="pro41">
+		<img src="/a00_img/spade-3.png" id="pro42">
+		<img src="/a00_img/spade-7.png" id="pro43">
+		<img src="/a00_img/spade-A.png" id="pro44">
+	</div>
+	
+	
+
+	<!-- 
+	5 
+	overflow : 지정된 화면의 크기보다 더 많은 내용을 컨테이너형 요소에 포함될 때 처리하는 속성 // 초과할때
+	속성값 	hidden 	: 보이지 않게 처리
+			visible : 넘기에 보이게 처리  //default
+			scroll	: 스크롤 해서 보이게 처리
+	6
+	list-style-type: 아이템 마커 타입 지정
+	정렬	: decimal, armenian, georgian, cjk-ideographic,
+		  lower-alpha, uppler-alpha, lower-roman, upler-roman
+	비정렬: desc,  circle, square
+	삭제	: none
+	-->
+	<!-- 7 -->
+	<h3>7번</h3>
+	<nav id="pro07">
+		<ul>
+			<li>경로찾기<img  src="/a00_img/navi.png">
+			<li>내집주소<img  src="/a00_img/navi.png">
+			<li>라디오<img  src="/a00_img/navi.png">
+			<li>블루투스<img  src="/a00_img/navi.png">
+		</ul>
+	</nav>
+	<!-- 7번정답 -->
+	<style>
+		#menus>ul{
+			list-style-type:none;
+			list-style-image:url('/a00_img/marker.png');
+			list-style-position:inside;
+		}
+		#menus>ul>li{
+			padding:10px;
+			float:left;
+			border:1px solid blue;
+			border-radius:8px;
+
+		}
+		#menus a{
+			color:gray;
+			text-decoration:none;
+		}
+	</style>
+	
+	<h3>네비게이션 메뉴(왼쪽에서 오른쪽으로 리스트 처리)</h3>
+	<nav id="menus">
+		<ul>
+			<li><a href="#">메뉴1</a></li>
+			<li><a href="#">메뉴2</a></li>
+			<li><a href="#">메뉴3</a></li>
+			<li><a href="#">메뉴4</a></li>
+
+		</ul>
+	</nav>
+	
+	<!-- 
+	8
+ 	적용 주요 옵션
+	1) border: 표 테두리, border-bottom: 하단의 테두리 설정
+	2) border-collapse:collapse; 중복된 테두리 합치기
+	3) height/width : th/td의 폭과 넓이 개별적 조정
+	4) padding : 여백설정
+	5) text-align : td 안에 정렬처리
+	6) tr:nth-child(eve) : 짝수 행단위 처리
+	7) tr:hover : 마우스커서 이동시 처리
+	-->
+	
+	<!-- 9 -->
+	<h3>9번</h3>
+	<table border>
+		<thead >
+			<tr><th>부서번호</th><th>부서이름</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>인사팀</td><td>701</td></tr>
+			<tr><td>총무팀</td><td>702</td></tr>
+			<tr><td>법무팀</td><td>703</td></tr>
+			<tr><td>홍보팀</td><td>704</td></tr>
+		</tbody>
+	</table>
+	
+	<!-- 
+	10 
+	
+	폼 꾸미기
+	1) 글자 색상 지정	input[type-text]{color:red}
+	2) 테두리 만들기	input[type-text]{
+						border:2px solid skyblue;
+						border-radius:5px;
+					}					
+	3) 마우스 올라올 때 input[type-text]:hover{
+						background:aliceblue;
+					}				
+	4) 포커스를 받을 때	input:focus{ font-size:120%; }	
+	-->
+	
+	<!-- 11 -->
+	<h3>11번</h3>
+	<div id="pro11">
+	<form>
+		<fieldset>
+			<legend>부서정보등록</legend>
+			<label>
+				<span>부서명</span><input type="text" placeholder="부서명">
+			</label>
+			<label>
+				<span>부서번호</span><input type="text" placeholder="부서번호">
+			</label>
+			<label>
+				<span>부서위치</span><input type="text" placeholder="부서위치">
+			</label>
+			<label>
+				<span></span><input type="submit" value="등록">
+			</label>
+		</fieldset>
+	</form>
+	</div>
+	<!-- 11번정답 -->
+	<style>
+		label{
+			display:block;
+		}
+		label>span{
+			display:inlineblock;
+			width:20%;
+			padding:5px;
+			text-align:center;
+		}
+		input[type=text]{
+			color:navy;
+			border-radius:5px;
+			border:2px solid skyblue;
+		}
+		input[type=text]{
+			font-size:120%;
+		}
+	</style>
+	<h3>부서정보 등록</h3>
+	<form>
+		<label>
+			<span>부서명</span><input name="dname" type="text" placeholder="부서명">
+		</label>
+		<label>
+			<span>부서번호</span><input name="deptno" type="text" placeholder="부서번호">
+		</label>
+		<label>
+			<span>부서위치</span><input name="loc" type="text" placeholder="부서위치">
+		</label>
+		<label>
+			<span></span><input type="submit" value="등록">
+	</form>
+	<!-- 
+	12 
+	1) alert("안녕하세요");	화면에 경고창으로 출력
+	2) document.write("<h2>안녕하세요</h2>");	기존에 있는 내용 지우고 document.write()를 통해서 화면을 구현 처리
+		ps) body 밑에 document.querySelector("h1").innerText="안녕하세요"	
+			DOM객체를 인식해서 해당 요소에 속성값으로 처리가 된다
+	3) console.log("안녕하세요")	브라우저에서 console메뉴에 출력된 내용을 확인할 때 사용한다
+		   				      	js단에 에러 트래킹시 사용된다	
+	-->
+
+</body>
+</html>

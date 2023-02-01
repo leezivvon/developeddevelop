@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+<style type="text/css">
+/*
+
+*/
+</style>
+<script type="text/javascript">
+/*
+
+*/
+</script>
+</head>
+<body>
+
+	<h2>json문자열가져와서 객체 변환-예제 물건정보 로딩</h2>
+	<table id="tb01">
+		<thead>
+			<tr><th>물건명</th><th>가격</th><th>개수</th></tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<div id="container"></div>
+	
+	
+</body>
+<script type="text/javascript">
+/*
+ex) a13_callJsonExp.html
+a13_json.jsp 물건명 가격 개수 json으로 선언
+*/
+
+var div = document.querySelector("#container")
+var h2Ob = document.querySelector("h2")
+var tbOb = document.querySelector("#tb01 tbody")
+h2Ob.onclick=callAjax
+function callAjax(){
+	var xhr = new XMLHttpRequest()
+	xhr.open("get","a13_json.jsp", true)
+	xhr.send()
+	xhr.onreadystatechange=function(){
+		if(xhr.readyState==4&&xhr.status==200){
+			console.log(xhr.responseText)
+			// a13_json.jsp에 있는거 
+			// div.innerHTML="문자열json:"+xhr.responseText+"<br>" 
+			var plist = JSON.parse(xhr.responseText)
+			var adHTML=""
+			plist.forEach(function(prod){
+				adHTML+="<tr>"
+				adHTML+="<td>"+prod.pname+"</td>"
+				adHTML+="<td>"+prod.price+"</td>"
+				adHTML+="<td>"+prod.cnt+"</td>"
+				adHTML+="</tr>"
+			})
+			tbOb.innerHTML = adHTML
+			
+			/*
+			//객체로 변환
+			var p01 = JSON.parse(xhr.responseText)
+			div.innerHTML += "물건명: "+p01.pname+"<br>"
+			div.innerHTML += "가격: "+p01.age+"<br>"
+			div.innerHTML += "개수: "+p01.cnt+"<br>"
+			*/
+		}
+	}
+}
+
+// ex) z14_deptJson.jsp : 부서정보 list
+//	   a14_callList.jsp : 클릭 시 부서정보를 로딩 처리
+
+</script>
+</html>

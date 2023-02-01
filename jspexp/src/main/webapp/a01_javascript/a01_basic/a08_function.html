@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+</style>
+<script>
+/*
+
+*/
+</script>
+</head>
+<body>
+	물건명:<input type="text" name="pname"/>
+	가격:<input  type="text" name="price"/>
+	개수:<input  type="text" name="cnt"/>
+	<input  type="button" value="계산" onclick="calcu()"/>
+	<h2>계산결과</h2>
+</body>
+<script type="text/javascript">
+/*
+ex) 입력form으로 물건명, 가격, 개수를 입력 후 계산버튼을 클릭 시 하단에 h2로 물건과 총계가 출력되게 처리하세요
+*/
+	function calcu(){
+		var pname = document.querySelector("[name=pname]").value;
+		var vprice = document.querySelector("[name=price]").value;
+		var vcnt = document.querySelector("[name=cnt]").value;
+		// + 연산자 이외는 자동형변환이 적용되어 Number()를 사용하지 않더라도 연산이 된다
+	
+		// var tot = Number(vprice)*Number(vcnt);
+		var tot = vprice*vcnt;
+		//var h2Obj = document.querySelector("h2");
+		//h2Obj.innerText = pname+"의 총 합계는 "+tot+"원 입니다"
+		document.querySelector("h2").innerText = pname+", 총계 "+tot
+	}
+
+
+//
+</script>
+</html>

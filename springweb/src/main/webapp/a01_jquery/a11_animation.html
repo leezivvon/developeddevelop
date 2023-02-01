@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h2").text("애니메이션 기능메서드 처리")
+		$("h2").click(function(){
+			$("div#div01").animate({
+				left:'250px', top:'250px',
+				opacity:"0.5",
+				height:'200px',
+				width:'200px'
+			})
+		})
+		$("button#gobig").click(function(){
+			$("div#div02").animate({
+				opacity:"0.8",
+				height:'200px',
+				width:'200px'
+			})
+		})
+		$("button#gosmall").click(function(){
+			$("div#div02").animate({
+				opacity:"0.8",
+				height:'50px',
+				width:'50px'
+			})
+		})
+		$("button#goright").click(function(){
+			$("div#div02").animate({
+				left:'250px',
+				opacity:"0.8"
+			})
+		})
+		$("button#goleft").click(function(){
+			$("div#div02").animate({
+				right:'250px'
+			})
+		})
+		$("button#gocircle").click(function(){
+			$("div#div02").animate({
+				borderRaidus:'50px'
+			})
+		})
+		
+		// ex) 기능 버튼 4개 만들어서 커져라/작아져라/오른쪽으로/왼쪽 처리를 하세요
+	});
+</script>
+</head>
+<body>
+	<button id="gobig" type="button">커져라</button>
+	<button id="gosmall" type="button">작아져라</button>
+	<button id="goright" type="button">오른쪽으로</button>
+	<button id="goleft" type="button">왼쪽으로</button>
+	<button id="gocircle" type="button">동그라미</button>
+	
+	<h2></h2>
+	<div id="div01" style="background:red;width:50px;height:50px;position:absolute"></div>
+	<div id="div02" style="background:purple;width:100px;height:100px;position:absolute"></div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+127.0.0.1 - - [26/Jan/2023:09:16:20 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [26/Jan/2023:09:16:26 +0900] "GET /ZzimGgong/ljw/pg0000.jsp HTTP/1.1" 200 8743
+0:0:0:0:0:0:0:1 - - [26/Jan/2023:09:16:26 +0900] "GET /index_markup/reset.css HTTP/1.1" 404 833
+0:0:0:0:0:0:0:1 - - [26/Jan/2023:09:16:26 +0900] "GET /index_markup/img/main_logo.png HTTP/1.1" 404 845
+0:0:0:0:0:0:0:1 - - [26/Jan/2023:09:16:26 +0900] "GET /index_markup/img/mainBanner01.png HTTP/1.1" 404 848
+0:0:0:0:0:0:0:1 - - [26/Jan/2023:09:16:26 +0900] "GET /index_markup/img/mainBanner02.png HTTP/1.1" 404 848
+0:0:0:0:0:0:0:1 - - [26/Jan/2023:09:16:26 +0900] "GET /index_markup/img/mainBanner03.png HTTP/1.1" 404 848
+0:0:0:0:0:0:0:1 - - [26/Jan/2023:09:16:26 +0900] "GET /index_markup/img/search_icon.png HTTP/1.1" 404 847
+0:0:0:0:0:0:0:1 - - [26/Jan/2023:09:16:26 +0900] "GET /ljw/pg0000_select.jsp?selectBox=%EB%B3%84%EC%A0%90%EB%86%92%EC%9D%80%EC%88%9C HTTP/1.1" 404 817
+0:0:0:0:0:0:0:1 - - [26/Jan/2023:09:16:26 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+127.0.0.1 - - [26/Jan/2023:15:26:57 +0900] "GET / HTTP/1.1" 404 807

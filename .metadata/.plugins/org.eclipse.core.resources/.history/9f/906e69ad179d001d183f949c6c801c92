@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >	
+
+<!-- 4. mapper클래스 -->
+
+<mapper namespace="a01_diexp.mybatis.dao.A02_ExpDao">
+	<!-- 
+	SELECT empno NO, ename name, sal+nvl(comm, 0) tot  
+	FROM emp100;
+	-no,    name,  tot : column
+	-empno, ename, sal : Emp 안에 property할당
+	
+	 1. result mapper에서 선언 id값을 가져오기 
+	
+	-->
+	<resultMap type="emp" id="empSult">
+		<result column="no" property="empno"/> <!-- column값이 no인 것을 property를 empno로 할당하겠음 -->
+		<result column="name" property="ename"/>
+		<result column="tot" property="sal"/>
+	</resultMap>
+	<!--  
+	public List<Emp> getEmpData();
+	-->
+	<select id="getEmpData" resultMap="empSult">
+		SELECT empno NO, ename name, sal+nvl(comm, 0) tot  FROM emp100
+	</select>
+	
+	
+</mapper>   
+		

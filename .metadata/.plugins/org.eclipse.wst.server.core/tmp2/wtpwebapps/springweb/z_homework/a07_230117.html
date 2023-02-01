@@ -1,0 +1,206 @@
+<!--  
+
+2023-01-17
+[1단계:개념] 1. 출력을 처리하는 기능메서드를 기술하고, 이 기능메서드에 callback함수가 처리될 때 어떤 효과가 나는지 기술하세요
+[1단계:확인] 2. callback함수를 이용하여 5*5 테이블에 1~25번호를 붙이고, 짝/홀별로 배경색상을 다르게 처리하세요
+[1단계:개념] 3. 부모/조상객체를 선택하는 기능메서드를 기술하세요
+[1단계:확인] 4. <p><h2>,<p><h2>,<p><h2> 구조로 된 상황에서 h2를 클릭시, 상위 p태그이 border의 테두리가 파랑색으로 처리되게 하세요  
+[1단계:개념] 5. 자식/후손 객체를 선택하는 기능메서드를 기술하세요
+[1단계:개념] 6. 형제 객체를 선택하는 기능메서드를 기술하세요
+[1단계:활용] 7. 입력시, next()를 활용해서 유효성(글자수 8~16)에 대한 내용을 표시하게 하세요.
+[1단계:활용] 8. eq()를 활용하여 화살표로 커서를 움직일 때 마다, 3X3테이블의 특정한 td의 배경색상이 위치가 이동이 되게 하세요
+[1단계:개념] 9. 의존성 자동 주입이란 무엇이고 이것과 관련한 옵션은 어떤 것들이 있는가?
+[1단계:확인] 10. Pencil과 Eraser를 1:1관계로 설정하고 의존성 자동 주입으로 처리해보세요.(byType)
+[1단계:확인] 11. BusDriver와 Bus를 선언하고 버스기사가 여러 대의 버스가운데 선택된 의존성 자동 주입을 처리해보세요(byName)
+[1단계:개념] 12. 특정 패키지 자동 클래스 선언 형식을 기술하세요
+[1단계:확인] 13. z06_vo 패키지에 Person, Product, Music 클래스를 복사하고  컨테이너에서 해당 객체들을 호출하게 처리하세요
+
+
+1.
+출력을 처리하는 기능메서드
+	$(document).ready(function(){
+		$("셀렉터").이벤트(function(){
+			이벤트 처리내용
+		})
+	});
+callback함수 : 특정한 기능 처리를 한 후 최종적으로 호출할 함수를 지정하여 처리하는 것을 말한다
+
+3.
+부모 및 조상요소객체 선택
+	$("요소객체").parent() : 바로 상위부모
+	$("요소객체").parents("선택할 조상객체") : 요소객체를 포함하고 있는 모든 조상객체, 상위 조상객체들 가운데 지정
+	$("요소객체").parentsUtil("w지정") : 모든 조상객체에서 특정한 객체까지
+
+5.
+자식/후손 객체
+	$("요소객체").children()
+	$("요소객체").find("하위 중에 찾을 객체")
+
+6.
+형제 객체
+	$("요소객체").silblings() : 요소객체와 같은 부모객체를 둔 모든 형제객체를 선택
+	$("요소객체").next()		: 형제 객체 중 바로 다음에 나오는 객체
+	$("요소객체").nextAll() 	: 형제객체 중 바로 다음에 오는 모든 객체
+	$("요소객체").nextUntil() 	: 형제객체 중 바로 다음에 지정한 객체까지 객체
+	$("요소객체").prev() 		: 형제객체 중 바로 이전 객체
+	$("요소객체").prevAll() 	: 형제객체 중 바로 이전객체들
+	$("요소객체").prevUntil() 	: 형제객체 중 바로 이전객체까지 객체들
+
+9.
+의존성 자동 주입이란	
+컨테이너에 선언된 여러가지 객체들 중 서로 연관관계가 있는 객체 즉, 메서드나 필드에 선언되어 호출되는 객체들을 
+autowiring 옵션을 이용하여 바로 new XXXX()형태로 생성하여 할당없이 처리하는 것을 말한다. 현재 메모리에 로딩된 상태여야한다.
+
+의존성 자동 주입 설정 옵션
+	1) autowire = "byType"
+		스프링 컨테이너 메모리가 해당 객체 타입으로 들어올 수 있는 메서드가 정의가 되어 있으면
+		자동으로 할당이 되게 처리하는 것을 말한다
+		ex) public void setHandPhone(HandPhone phone){}
+	2) autowire = "byName"
+		byType은 컨테이너에 들어올 수 있는 객체가 하나일 때 처리가 가능한데 특정 객체가 여러개 선언되어 있는 경우
+		byName으로 하면 일단 type이 같고 id값이 같은 property가 있는 메서드가 있으 경우 할당하는 것을 말한다
+	3) autowire="constructor"	
+		생성자를 통해서 해당 타입이 할당될 때 자동 주입된다
+	4) autowire="autodetect"
+		우선 할당할수있는 생성자를 살피고, 없을 때는 기능메서드 살펴서 byType으로 할당한다
+	5) autowire="no"	
+		자동주입을 하지 못하게 한다. default다	
+		
+12.
+기본형식:컨테이너안에 선언
+1) <context:component-scan base-package="최상위패키지명">
+	- 일단 @Component로 선언된 모든 클래스는 자동으로 메모리에 로딩된다
+	
+
+//8
+10. Pencil과 Eraser를 1:1관계로 설정하고 의존성 자동 주입으로 처리해보세요.(byType)
+11. BusDriver와 Bus를 선언하고 버스기사가 여러 대의 버스가운데 선택된 의존성 자동 주입을 처리해보세요(byName)
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		//2 
+		var colors=['green', 'beige']
+		$("#p01 td").text(function(idx){
+			$(this).css("background", colors[idx%2])
+			return idx
+		})
+		
+		//4 
+		$(".p04").text("<h2>눌러봐").click(function(){
+			$(this).parent().css("border-color","blue")
+			$(this).parent().css("border-width","5px")
+			$(this).parent().css("border-style","solid")
+		})
+		
+		// 7 
+		$("input").keyup(function(){
+			var str = $(this).val()
+			var len = str.length
+			if(len<8){
+				$(this).css("border-color","red")
+				$(this).css("border-width","3px")
+				$(this).css("border-style","solid")
+				$("#p07").text("8자이상입력하여야합니다").css("color","red")
+			}else if(len>16){
+				$(this).css("border-color","red")
+				$(this).css("border-width","3px")
+				$(this).css("border-style","solid")
+				$("#p07").text("16자초과입력하였습니다").css("color","red")
+				$(this).val(str.substring(0,20))
+				len--
+			}else{
+				$("#p07").text("")
+				$(this).css("border","")
+			}
+			$(this).next().text(len+"/20")
+		})
+		
+		// 8 질문
+		// eq()를 활용하여 화살표로 커서를 움직일 때 마다, 3X3테이블의 특정한 td의 배경색상이 위치가 이동이 되게 하세요
+		/*
+		1) 이벤트 커서 이벤트로 처리되는 것을 확인
+			$("대상객체").on("keyup", function(){
+				console.log(event.keyCode)
+			})
+		2) table에 key에 따른 변경 처리
+			- 테이블 3*3 생성
+		3) <좌우> 키를 입력 시 좌우 이동 및 배경색 변경
+			전역변수로 tIdx=0;
+			$("td").eq(인덱스번호).css("background", "pink")
+			tIdx++; tIdx--
+		4) <상하> 키 입력 시 상하 이동 및 배경색 변경
+			0 1 2
+			3 4 5
+			6 7 8
+			아래 키 입력시 0 ==> 3 ==>  6
+			위에 키 입력시 8 ==> 5 ==>  2
+		
+		$("#p08 td").mouseenter(function(idx){
+			$(this).css("background","tomato")
+		})
+		$("#p08 td").mouseleave(function(idx){
+			$(this).css("background","white")
+		})
+		*/
+		
+		var tIdx = 4 //정중앙 cell index
+		$("#p08 td").text(function(idx){
+			$(this).css({fontSize:"30px"})
+			return idx+1;
+		})
+		$(this).keyup(function(){
+			$("#p08 td").css("background", "")
+			// 화살표 왼쪽부터 시계방향으로 37, 38, 39, 40
+			//  좌 37, 우 39, 상 38, 하40
+			console.log(event.keyCode)
+			if(event.keyCode==37) tIdx--
+			if(event.keyCode==39) tIdx++
+			if(event.keyCode==38) tIdx-=3 //상
+			if(event.keyCode==40) tIdx+=3 //하
+			tIdx%=9 // 범위가 0~9까지만 변경되게 처리
+			$("#p08 td").eq(tIdx).css("background", "tomato")
+		})
+	});
+	
+	
+</script>
+</head>
+<body>
+
+	<!-- 2 -->
+	<table id="p01" width="300" height="300" border>
+		<tr><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td><td></td></tr>
+	</table>
+	
+	<!-- 4 -->
+	 <div><h2 class="p04"></h2></div>
+	 <div><h2 class="p04"></h2></div>
+	 <div><h2 class="p04"></h2></div>
+	
+	<!-- 7 -->
+	<input type="text" placeholder="글자는 8~16자리수여야합니다">
+	&nbsp;<span>0/16</span>&nbsp;<span id="p07"></span>
+	
+	<!-- 8 -->
+	<table id="p08" width="300" height="300" border>
+		<tr><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td></tr>
+	</table>
+
+</body>
+</html>

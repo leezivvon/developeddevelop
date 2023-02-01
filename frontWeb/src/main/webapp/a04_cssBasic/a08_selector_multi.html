@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 선택자(selector) 조합하기
+1. 2개 이상의 선택자 조합
+	1) 조합에 적합한 html 태그에만 적용
+2. 자식 선택자(child selector)
+	1) 부모 자식 관계인 두 선택자는 '>' 기호로 조합된다 : 부모자식관계는 태그가 바로 밑에 있어야 한다
+	ex) div > strong{color:dodgerblue;}
+		- div의 직계 자식인 strong에 적용되는 스타일 시트
+3. 자손 선택자(descendent selector)
+	1) 자손 관계인 2개 이상의 태그 나열
+	ex) ul strong{color:dodgeblue;}
+		- ul의 자손 strong에 적용되는 스타일 시트
+				 	
+*/
+		ul strong{color:dodgerblue;}  
+		div > strong{background:yellow;}
+		div strong{color:red;}
+		
+		/* ex) 클래스1, 클래스2를 각각 속성값을 선언하고 부모/자식관계에 있는 속성 선언,
+			   상위/하위 자손관계에 있는 속성으로 구별하여 확인하세요 */
+		
+		.cls01 > strong{color:dodgerblue;}	   
+		.cls02 strong{color:green;}
+		.cls01 .cls02{background:beige;}
+		
+	</style>
+</head>
+<body>
+	<div>
+		2학기<strong>학습내용</strong>
+			<p>
+				안녕하세요 <strong>이번 학기</strong>는 수업이 많이 어려울 예정입니다
+			</p>
+	</div>
+	<ul>
+		<li>html5</li>
+		<li><strong>css</strong></li>
+		<li>javascript</li>
+		<li>jquery</li>
+	</ul><br>
+	
+	<!-- 예제 -->
+	
+	<div class="cls01">
+		부모/자식간 관계<br>
+		좋아하는 음식은 <strong>삼겹살</strong>, 갈비, 닭갈비
+	</div>
+	
+	<div class="cls02">
+		 상위/하위 자손관계<br>
+		좋아하는 가수는 아이유, 노래는 요즘에는 겨울잠<br>
+		<pre>
+		겨울잠 가사
+		때 이른 <strong>봄 몇 송이</strong> 꺾어다<br>
+		너의 방 문 앞에 두었어
+		긴 잠 실컷 자고 나오면
+		그때쯤엔 예쁘게 피어 있겠다
+		<strong>별 띄운 여름 한 컵</strong> 따라다
+		너의 머리맡에 두었어
+		금세 다 녹아버릴 텐데
+		너는 아직 혼자 쉬고 싶은가 봐
+		너 없이 보는 첫 봄이, 여름이
+		괜히 왜 이렇게 예쁘니
+		다 가기 전에 널 보여줘야 하는데
+		음-음, 꼭 봐야 하는데
+		내게 기대어 조각잠을 자던
+		그 모습 그대로 잠들었구나
+		무슨 꿈을 꾸니?
+		깨어나면 이야기해 줄 거지?
+		언제나의 아침처럼
+		음-, 음-
+		</pre>
+	</div>
+	<!-- 정답 -->
+	<table class="cls01" border="1" width="100" height="200">
+		<tr><td class="cls02">1</td>
+		<tr><td>2</td></tr>
+		<tr class="cls03"><td class="cls02"></td></tr>
+	</table>
+	
+</body>
+</html>

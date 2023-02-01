@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+</head>
+<body>
+	<h2>계산기</h2>
+	<table id="tab01" width="50%" height="70%">
+		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+		<tr style="text-align:right;height:20%;">
+			<td colspan="4">0</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>8</td>
+			<td>9</td>
+			<td>+</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>5</td>
+			<td>6</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>*</td>
+		</tr>
+		<tr>
+			<td>C</td>
+			<td>0</td>
+			<td>=</td>
+			<td>/</td>
+		</tr>
+	</table>
+	
+	<div id="container"></div>
+	
+	
+</body>
+<script type="text/javascript">
+	var tds = document.querySelectorAll("#tab01 td");
+	//출력할 td tds[0]
+	// ex) C를 클릭 시 초기화 0으로 처리되고 =를 클릭시 eval을 이용하여 td[0]에 있는 내용계산 처리 출력
+			//	   tds[0].innerTesxt : 출력할 상단위 cell
+			//	   this.innerText는 클릭한 숫자버튼
+	for(var idx=0;idx<tds.length;idx++){
+		// <td onclick ="함수"
+		// 		this.innerText : td중에 이벤트가 일어난 객체를 지칭
+		// 		tds[0].innerText : 상단의 출력 내용
+		// 		eval(tds[0].innerText) : 상단의 내용을 함수로 계산 처리(문자열 ==> 계산)
+		tds[idx].onclick=function(){
+			// 클릭한 현재 문자열을 출력
+			// alert(this.innerText)
+			if(tds[0].innerText=='0') tds[0].innerText="" //초기출력 0을지워주고 입력 시작
+			
+			if(this.innerText=='=') {
+				// =버튼 계산 처리
+				//eval함수를 통해서 지금까지 입력된 내용 계산 처리
+				tds[0].innerText=eval(tds[0].innerText) 
+			}else{
+				// 그 외 누적처리 : 입력된 버튼 내용을 문자열 누적
+				tds[0].innerText +=this.innerText
+				// C이때는 초기화 0으로 처리
+				if(this.innerText=='C') tds[0].innerText="0"
+			}
+		}
+	}
+/*
+# eval함수를 통한 계산기 만들기
+1. 계산기 형태의 화면구성하기  : table
+	3X4
+2. 각 항목별로 클릭 시 전달된 이벤트 핸들러 함수 설정
+3. 이벤트 핸들러 함수
+	1) 매개변수를 통해 클릭한 문자열 전달
+	2) 계산식을 출력한 내용 상단 cell에 출력(문자열 누적)
+	3) 계산식 버튼(cell) 중 = 클릭 시, eval함수를 통해 결과값 출력처리
+*/
+var div = document.querySelector("#container")
+
+//
+</script>
+</html>

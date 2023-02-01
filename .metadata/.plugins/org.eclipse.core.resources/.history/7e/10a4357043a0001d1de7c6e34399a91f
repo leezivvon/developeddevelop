@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+	<!-- 230127과제 -->
+	
+	<!--  
+	// springweb.a02_homwork.Z13_HWMemberDao
+	// public List<Member> getHWMemList(Member sch);
+			public interface Z13_HWMemberDao {
+		
+		인터페이스를 상속받은 실제Dao객체를 위 규칙에 생성하는 xml파일
+	-->
+	
+<mapper namespace="springweb.a05_mvc.a03_dao.Z13_HWMemberDao">
+	
+
+	<!-- 230127과제#7 -->
+	<select id="hwMemAuthComb" resultType="string">
+		SELECT DISTINCT authority auth FROM member100
+	</select>
+	
+	<!-- 230127과제#2,3 -->
+	<select id="getHWMemList" resultType="member" parameterType="member">
+	<!--  resultType은 개발자가 직접정의한 VO 객체. mybatis에서 설정한 alias=member가 대신 들어감-->
+		SELECT id, name, AUTHORITY auth, point, registerdate 
+		FROM member100
+		WHERE NAME LIKE '%'||#{name}||'%'
+		<!-- 콤보박스 자리 -->
+<!--	<if test="not empty auth">   -->	
+		<if test="auth!=''"><!-- auth=null일때는 service단에서 필터링 -->
+		AND AUTHORITY =#{auth}
+		</if>
+	</select>
+	
+	<update id="hwUptMem" parameterType="member">
+		update member100
+		set name=#{name},
+			pass=#{pass},
+			point=#{point},
+			AUTHORITY=#{auth}
+		where id =#{id}
+	</update>
+	
+	<delete id="hwDelMem" parameterType="string">
+		delete member100
+		where id=#{id}	
+	</delete>
+
+</mapper>	

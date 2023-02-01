@@ -1,0 +1,203 @@
+<!--  
+2022-11-04
+[1단계:개념] 1. check와 radio의 공통점과 차이점을 기술하세요. 
+[1단계:확인] 2. 앞으로 5년간은 년도별 check로 월별은 radio를 만들어 앞으로 년도별 여행 월으로 check해서
+            처리할려고 한다. (년도-다중, 월-단일) 처리하세요.
+[1단계:개념] 3. select의 기본 속성과 option 속성을 기술하세요.
+[1단계:확인] 4. 테이블 안에 컴퓨터 부품별로 사양에 따른 select 박스를 만들되, 항목별로 2개가 보이며 다중 선택이 
+           가능하게 처리하세요.
+           CPU [i5 3.1GHZ] Ram[2]....
+                  [i7 4.1GHZ] Ram[2]
+              [AMD    ]
+[1단계:개념] 5. label와 form하위 객체간의 연결관계를 캡션 설정하는데 기본 코드를 기술하세요
+[1단계:확인] 6. label과 radio로 연결하여 부서명 5개를 체크하여 요청값이 부서명을 클릭하고 submit할시
+            해당 check된 부서명이 서버에 전송되게 하세요.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+1 
+체크박스와 라디오박스는 공통적으로 선택형 입력이다
+기본 형식은
+	<input type="checkbox|radio"
+				name="요소이름" value="요소값" checked>
+	value : 폼 요소가 선택된 상태일 때 웹서버에  전송되는 값, checked : 이 속성이 있으면 초기에 선택 상태로 출력	
+check박스는 동일한 이름의 여러개의 다중 선택이 가능하고 요청값으로 전달되는 경우, *체크된 값만 전달된다
+radio박스는 동일한 name으로 설정하면 하나만 선택이 되어진다 
+		   여러개의 name에 동일한 값이 설정되는 경우 check된 단일 값이 요청으로 전달 된다	
+-->
+
+<!-- 2 -->
+<h2>2번</h2>
+<h3>여행 달 고르기</h3>
+<form>
+	<input type="checkbox" name="year" checked value="2022">2022|
+	<input type="checkbox" name="year" value="2023">2023|
+	<input type="checkbox" name="year" value="2024">2024|
+	<input type="checkbox" name="year" value="2025">2025|
+	<input type="checkbox" name="year" value="2026">2026<br>
+	<input type="radio" name="month" checked value="jan"> 1월|
+	<input type="radio" name="month" value="feb"> 2월|
+	<input type="radio" name="month" value="mar"> 3월|
+	<input type="radio" name="month" value="apr"> 4월|
+	<input type="radio" name="month" value="may"> 5월|
+	<input type="radio" name="month" value="june"> 6월|
+	<input type="radio" name="month" value="july"> 7월|
+	<input type="radio" name="month" value="aug"> 8월|
+	<input type="radio" name="month" value="sep"> 9월|
+	<input type="radio" name="month" value="oct"> 10월|
+	<input type="radio" name="month" value="nov"> 11월|
+	<input type="radio" name="month" value="dec"> 12월|<br>
+	<input type="submit">
+</form><br>
+
+<!-- 
+3 
+select는 선택형 입력이다 
+드롭다운 리스트에 목록 출력, 목록을 선택하는 입력 방식으로 <option>태그로 항목 하나 표현
+기본형식은
+<select name="요소이름"
+     	size="개수"
+	    multiple>
+	<option>선택1</option>	    
+	<option>선택2</option>	    
+	<option>선택3</option>	    
+여러 개의 option을 하위 항목으로 주어져서 선택 항목으로 처리한다
+속성에는 콤보 박스 창 크기인 size,  다수 항목 선택 가능한 multiple이있다
+
+option은 select의 하위 항목으로 선택하는 옵션이 주어진다
+속성에는 웹 서버에 전송되는 값인 value,	초기에 선택 상태로 출력되는 selected가 있다-->
+
+<!-- 4 -->
+<h2>4번</h2>
+
+<form>
+<table>
+ <col width="20%">
+ <col width="80%">
+
+ <tbody>
+ 	<tr>
+ 		<th>CPU</th>
+ 			<td>
+ 			<select name="cpu" size="2" multiple="multiple">
+ 				<option value=i5>i5 3.1GHZ</option>
+ 				<option value=i7>i5 4.1GHZ</option>
+ 			</select>
+ 			</td>
+ 	</tr>
+ 	<tr>
+ 		<th>메모리</th>
+ 			<td>
+ 			<select name="memory" size="2" multiple="multiple">
+ 				<option value=8G>8G</option>
+ 				<option value=16G>16G</option>
+ 			</select>
+ 			</td>
+ 	</tr>
+ 	<tr>
+ 		<th>Ram</th>
+ 			<td>
+ 			<select name="ram" size="2" multiple="multiple">
+ 				<option value=8G>8G</option>
+ 				<option value=16G>16G</option>
+ 			</select>
+ 			</td>
+ 	</tr>	
+ 	<tr>
+ 		<td colspan="2"><input type="submit"></td>
+ 	</tr>
+ </tbody>
+</table>
+</form><br>
+
+<!-- 4번 정답 -->
+<h2>4번 정답</h2>
+<h2>부품 선택</h2>
+<form>
+<table width="30%">
+	<col width="15%">
+	<col width="18%">
+	<col width="15%">
+	<col width="18%">
+	<col width="15%">
+	<col width="18%">
+	<tr><th>CPU</th>
+		<td>
+			<select name="CPU" size="2" multiple="multiple">
+				<option>i5 3.1GHZ</option>
+				<option>i7 3.6GHZ</option>
+				<option>i9 4.2GHZ</option>
+				<option>AMD 3.5GHZ</option>
+			</select>
+		</td>
+		<th>RAM</th>
+		<td>
+			<select name="RAM" size="2" multiple="multiple">
+				<option>4G</option>
+				<option>8G</option>
+				<option>16G</option>
+				<option>32G</option>
+			</select>
+		</td>
+		<th>SSD</th>
+		<td>
+			<select name="SSD" size="2" multiple="multiple">
+				<option>120G</option>
+				<option>256G</option>
+				<option>1T</option>
+				<option>2T</option>
+			</select>
+		</td></tr>
+</table>
+<!-- 
+http://localhost:7080/z01_homework/221104.html?CPU=i7+3.6GHZ&RAM=8G&RAM=32G&SSD=1T
+ -->
+<input type="submit">
+</form>
+
+
+
+<!-- 
+5 
+label 태그로 캡션과 폼 요소를 한 단위로 묶으면 캡션 텍스트를 명료하게 하는 장점이 있다
+두가지 방법
+1.<label>사용자 id<input="text"></label>		
+2.<label for="loginID">사용자 아이디</label><input type="text" id="loginID/">
+-->
+
+<!-- 6 -->
+<h2>6번</h2>
+<h3>부서명</h3>
+	
+<form>
+	<label>인사팀<input type="radio" name="hr" value="인사"></label>
+	<label>총무팀<input type="radio" name="ga" value="총무"></label>
+	<label>홍보팀<input type="radio" name="pr" value="홍보"></label>
+	<label>법무팀<input type="radio" name="lg" value="법무"></label>
+	<label>it<input type="radio" name="it" value="아이티"></label>
+	
+	<input type="submit"/>
+</form><br>
+
+<h2>6번정답</h2>
+<h2>부서를 선택하세요</h2>
+<form>
+	<label><input type="radio" name="dept" value="인사" checked>인사</label><br>
+	<label><input type="radio" name="dept" value="재무">재무</label><br>
+	<label><input type="radio" name="dept" value="총무">총무</label><br>
+	<label><input type="radio" name="dept" value="아이티">아이티</label><br>
+	<label><input type="radio" name="dept" value="기획">기획</label><br>
+	<input type="submit">
+</form>
+
+
+
+</body>
+</html>

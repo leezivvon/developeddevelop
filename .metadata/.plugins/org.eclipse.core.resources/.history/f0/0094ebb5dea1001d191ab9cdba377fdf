@@ -1,0 +1,14 @@
+package springweb.a05_mvc.a01_controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class A04_SalController {
+
+	//초기화면 호출 init
+	("salgradeInit.do")
+
+	
+//	/salgradeList.do
+//	/salgrade.do
+}

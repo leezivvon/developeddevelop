@@ -1,0 +1,108 @@
+@charset "UTF-8";@charset "UTF-8";
+/* ctrl+shift+c */
+*{
+	margin:0px;
+	padding:0px;
+	
+	background-color: #fafafa;
+}
+
+
+div#main{
+	/* 부모 */
+	width:100%;
+	height:100%;
+	position:relative;
+}
+
+div#main > .inner{
+	/* 자식 */
+	position:absolute;
+	top:50%;
+	left:30%;
+	width:500px;height:400px;
+	margin:100px auto 0 auto;
+
+}
+
+
+
+input[type=submit]{
+	display:block;
+	position:relative;
+	width: 285px;
+	padding: 15px;
+	border: 1px solid #ccc;
+	margin: 14px auto;
+	border-radius: 4px;
+	background-color: #35C5F0;
+	color:white;
+	font:bold 20px;
+}
+::placeholder{
+	color:#ccc;
+	font-weight:500;
+	font-size:15px;
+}
+
+
+input[type=text], input[type=password]{
+	display:block;
+	position:relative;
+	width: 250px;
+	padding: 15px;
+	border: 1px solid #ccc;
+	margin: 0 auto;
+	border-radius: 4px;
+	background-color:white;	
+}
+::value{
+	color:white;
+	font-weight:500;
+	font-size:20px;
+}
+input[type=text]:hover, input[type=password]:hover {
+	background-color:#fafafa;
+}
+input[type=text]:focus, input[type=password]:focus {
+	outline:none;
+	box-shadow:0 0 4px #B4E8F8;
+	border:3px solid #B4E8F8 ;
+}
+
+
+.inner>div.setting{
+	margin: 0 auto;
+	display: block;
+	position:relative;
+	width: 50%;
+}
+div.setting > a{
+	position:relative;
+	margin:10px 10px;
+	text-decoration:none;
+	font-weight:200px;
+	color:#333333;
+	
+	
+}
+div.inner > span{
+	position:relative;
+	display:block;
+	text-align:center;
+	margin: 30px auto 0px auto;
+	color:#666666;
+	font-weight:50px;
+	font-size:13px;
+	
+}
+div.sns{
+	display:block;
+	position:relative;
+	width:50%;
+	margin: 0px auto;
+	
+}
+div.sns>a>img {
+	margin: 0 9px;
+}

@@ -1,0 +1,89 @@
+<!--  
+2023-01-18
+[1단계:개념] 1. ajax처리를 위하여 백엔드단에서 처리할 부분과, 프런트단 처리할 부분을 구분하여 기술하세요.
+[1단계:확인] 2. dao에 회원정보 처리 메서드 확인해서, json데이터를 가져오는 처리를 하세요
+[1단계:확인] 3. jquery ajax를 이용해서 물건가격과 갯수를 입력시, 결과로 컨트롤에서 총계를 받아서 alert으로 처리하게 하세요.
+[1단계:확인] 4. 초기화면을 로딩해서 회원명과 권한으로 조회해서 회원 정보를 ajax로 출력하여 처리를 하세요.
+[1단계:개념] 5. 소스로 코드상 의존성 자동 주입을 할려면 사전에 어떤 처리를 하여야 하고, 실제 처리 예제를 기술하세요
+[1단계:확인] 6. Service단에 Dept객체를 리턴하고, 코드상 의존성 자동주입을 해서 화면단에 부서정보를 출력하게 처리하세요
+
+
+1.
+
+2.
+
+3.
+	1) 초기화면 호출 Controller 작성
+		A02_Controller.java
+		@GetMapping("buyProd99.do")
+		public String buyProd99(){
+			return "z_homework\a08_230118.jsp";
+		}
+	2) RestController에 요청값에 의해 결과데이터 리턴하는 처리
+		// Get방식/Post방식이 따로 선언할 때는 동일한 url선언 가능
+		@PostMapping("buyProd99.do")
+		public String buyProd99(Product p){
+			// 총계값 전달
+			return p.getPrice()*p.getCnt();
+		}
+	3) 화면단 jquery ajax처리
+		이벤트핸들러 선언
+		ajax처리
+
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+   td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+      $("h2").text("부서정보 ajax조회")
+   });
+</script>
+</head>
+<body>
+
+<div class="container">
+   <div class="jumbotron text-center">
+     <h2 ></h2>
+   </div>
+   <form id="frm01" class="form-inline"  method="post">
+     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+       <input name="dname" class="form-control mr-sm-2" placeholder="부서명" />
+       <input name="loc"  class="form-control mr-sm-2" placeholder="부서위치" />
+       <button class="btn btn-info" type="button">Search</button>
+    </nav>
+   </form>
+   <table class="table table-hover table-striped">
+      <col width="10%">
+      <col width="50%">
+      <col width="15%">
+      <col width="15%">
+      <col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>   
+    <tbody>
+       <tr><td></td><td></td><td></td><td></td><td></td></tr>
+       <tr><td></td><td></td><td></td><td></td><td></td></tr>
+       <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+   </table>       
+</div>
+</body>
+</html>

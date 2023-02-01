@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;javaexp/src/javaexp/z03_project/MyPage&apos; to &apos;MyPage_zivvonyyy16&apos;" description="Rename resource &apos;MyPage&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/javaexp/z03_project/MyPage" name="MyPage_zivvonyyy16" stamp="1664934766726" updateReferences="true"/>
+</session>

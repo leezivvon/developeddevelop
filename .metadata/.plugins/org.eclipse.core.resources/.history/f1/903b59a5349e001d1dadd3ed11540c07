@@ -1,0 +1,27 @@
+package springweb.a02_homwork;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import springweb.z01_vo.Member;
+
+@Controller("memCtrl")
+public class Z13_HWMemberController {
+	
+	//service단 호출
+	@Autowired(required=false)
+	private Z13_HWMemberService service;
+	
+	//@RequestMapping이 부여된 메서드들은 view를 생성하는역할, 즉 Controller메서드 = 메서드선언해서 view단 호출
+	//http://localhost:7080/springweb/hwMemberList.do
+	@RequestMapping("hwMemberList.do")
+	public String hwMemberList(@ModelAttribute("sch") Member sch, Model d) {
+		// 메서드의 매개변수:d.addAttribute("모델명", 모델객체)
+		d.addAttribute("memList", service.getHWMemList(sch)); 
+		return "WEB-INF\\views\\z01_homework\\a13_hw2memberList.jsp";
+	}
+	
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >	
+
+<!-- 4. mapper클래스 -->
+
+<mapper namespace="a01_diexp.mybatis.dao.A02_ExpDao"> <!-- 공통mybatis -->
+	<!--  
+	List<Salgrade> getSalgrade();
+	-->
+	<select id="getSalgrade" resultType="salgrade">
+		select *
+		from salgrade
+	</select>
+	
+	
+	<!--  
+	List<Emp> getEmpList();
+	-->
+	<resultMap id="empResult" type="emp">
+		<result column="name" property="ename"/>
+		<result column="manager" property="mgr"/>
+		<result column="salary" property="sal"/>
+	</resultMap>	
+	<select id="getEmpList" resultMap="empResult">
+		select ename name, mgr manager, sal salary from emp		
+	</select>
+	
+	
+	<!--  
+	List<Dept> getDeptList();
+	-->
+	<resultMap id="deptResult" type="dept">
+		<result column="no" property="deptno"/>
+		<result column="departname" property="dname"/>
+		<result column="location" property="loc"/>
+	</resultMap>
+	<select id="getDeptList" resultMap="deptResult">
+		select deptno no, dname departname, loc location from dept 		
+	</select>
+	
+	
+	<!--  
+	# 객체안에 객체 1:1형태로 resultMap 
+	
+	List<EmpDeptCom> getEmpDeptList();
+	-->
+	<resultMap type="empDept" id="comRst">
+		<association property="emp" javaType="emp">
+			<result column="empno" property="empno"/>
+			<result column="ename" property="ename"/>
+			<result column="job" property="job"/>
+			<result column="mgr" property="mgr"/>
+			<result column="hiredate" property="hiredate"/>
+			<result column="sal" property="sal"/>
+			<result column="comm" property="comm"/>
+			<result column="deptno" property="deptno"/>
+		</association>
+		<association property="dept" javaType="dept">
+			<result column="deptno" property="deptno"/>
+			<result column="dname" property="dname"/>
+			<result column="loc" property="loc"/>
+		</association>
+	</resultMap>
+	
+	
+</mapper>   
+		

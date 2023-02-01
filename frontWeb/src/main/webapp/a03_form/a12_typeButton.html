@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  
+# 여러가지 형태의 type버튼 만들기
+1. 버튼을 만드는 형태
+	1) <input type="button|reset|submit|image" value="버튼의 문자열">
+			type="image"의 경우 src="이미지url"설정
+	2) <button type="button|reset|submit">버튼의 문자열</button>
+-->
+	<h2>버튼유형1(type형태)</h2>
+	<form>
+		내용<input type="text" name="content" value="reset/submit테스트용"/><br>
+		
+		<input type="button" value="버튼1" onclick="alert('클릭!!')"/><br>
+		<input type="reset" value="reset버튼2"/><br> <!-- form안에 변경된 데이터 초기화 -->
+		<input type="submit" value="submit버튼3"/><br>
+		<input type="image" value="버튼4" onclick="alert('클릭!!')"
+				src="/a00_img/button01.png"/><br>
+	</form><br>
+	
+	<h2>버튼유형2(button태그)</h2>
+	<form>
+		내용<input type="text" value="reset/submit테스트용"/><br>
+		<button type="button" onclick="alert('클릭!!')">일반버튼</button><!-- 주로 이벤트 -->>
+		<button 			  onclick="alert('클릭!!')">type이 submit가 된다</button>
+		<button type="reset">reset버튼</button>
+		<button type="submit">submit버튼</button><br> 
+		
+		<button>type설정하지 않는 버튼</button> <!-- type을 설정하지 않으면 submit가 되므로 주의 -->
+	</form>
+	
+<!--  
+ex) 개인정보 이름 나이 사는곳을 입력하고 type 버튼 형식으로 submit처리 
+	button태그형식으로 reset처리를 하여 해당 내용 전송
+-->	<h2>개인정보 등록</h2>
+	<h3>예제(type버튼_전송/button태그_초기화)</h3>
+	<form>
+		이름<input type="text" name="name01" placeholder="홍길동"><br> 
+		나이<input type="text" name="age01" placeholder="20"><br> 
+		주소<input type="text" name="adrs01" placeholder="서울시행복구행복동"><br> 
+		<input type="submit" value="전송"><br>
+		<button type="reset">초기화</button>
+	</form><br>
+
+
+</body>
+</html>

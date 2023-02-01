@@ -1,0 +1,5 @@
+package springweb.a02_homwork;
+
+public interface Z13_HWMemberDao {
+
+}

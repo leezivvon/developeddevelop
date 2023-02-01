@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+</head>
+<body>
+
+
+	<div id="container"></div>
+	
+	
+</body>
+<script type="text/javascript">
+/*
+# Math객체
+1. 생성자 함수를 사용하지 않는 객체
+2. 기능메서드
+	abs(), acos(), asin(), atan(), atan2(), cos(), exp(), 
+	log(), max(), min(),pow(), random(), sin(), sqrt(), tan()
+	올림ceil(), 내림floor(), 반올림round()
+*/
+var div = document.querySelector("#container")
+div.innerHTML = "올림 : "+Math.ceil(5.35)+"<br>"
+div.innerHTML+= "내림 : "+Math.floor(5.35)+"<br>"
+div.innerHTML+= "랜덤 : "+Math.random()+"<br>"
+div.innerHTML+= "반올림 : "+Math.round(5.35)+"<br>"
+
+
+//	 ex) 1~6까지 주사위 2개를 던져 합산된 값을 출력하세요
+//	var dice01 = parseInt(Math.random()*6+1)
+//	var dice02 = parseInt(Math.random()*6+1)
+//	var pdices = dice01+dice02
+//	div.innerHTML +="주사위01: "+dice01+"<br>"
+//	div.innerHTML +="주사위02: "+dice02+"<br>"
+//	div.innerHTML +="주사위 합산 결과: "+pdices+"<br>"
+	
+	var dice01 = Math.floor(Math.random()*6+1)
+	var dice02 = Math.floor(Math.random()*6+1)
+	div.innerHTML +="주사위 합산 결과: "+(dice01+dice02)+"<br>"
+
+
+</script>
+</html>

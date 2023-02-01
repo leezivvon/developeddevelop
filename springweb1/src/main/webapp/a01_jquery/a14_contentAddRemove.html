@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h2").text("안녕하세요")
+		
+		
+		$("#addBtn").click(function(){
+		//  $("h2").text($("h2").text()+"★")
+			$("h2").append("★")
+		// 	$("h2").append($("span"),$("h1"))	객체단위로 여러 개를 추가도 가능
+		})
+		$("#removeBtn").click(function(){
+			//remove 싹 없어지고 추가도 불가능
+			$("h2").remove() // 요소객체 자체가 없어짐
+		})
+		$("#emptyBtn").click(function(){
+			//empty 싹 없어지지만 추가가능
+			$("h2").empty() // 요소의 내용을 없앰
+		})
+		
+		
+		
+		// ex1) 좋아요 버튼 클릭시 하단에 ♥가 추가 되게 처리
+		var lkCnt=0;
+		$("#likeBtn").click(function(){
+			$("div").append("♥")
+			lkCnt++
+		})
+		// ex2) 싫어요 버튼 클릭시 하단에 ♥가 하나씩 사라지게 처리
+		$("#dislikeBtn").click(function(){
+			lkCnt--
+			$("div").empty()
+			for(var cnt=1;cnt<=lkCnt;cnt++){
+				$("div").append("♥")
+			}
+		})
+		
+		// 웹에서 sns에서 좋아요 싫어요는 
+		/*
+		1. 현재 계정으로 해당 게시무에 한번에 처리하게끔 데이터베이스 설정
+			no chId isLike 원래 게시물에 글번호와 체크한 id를 저장처리
+		2. 좋아요 싫어요 내용을 클릭 시 DB에 ajax로 저장하게 처리
+			1) 위check id DB
+			2) check id DB를 통계치를 설정하여 좋아요 글 수로 하트표시
+		*/
+		
+	});
+</script>
+</head>
+<body>
+	<button type="button" id="addBtn">추가</button>
+	<button type="button" id="removeBtn">삭제</button>
+	<button type="button" id="emptyBtn">비우기</button>
+	<h2></h2>
+	
+	<button type="button" id="likeBtn">좋아요</button>
+	<button type="button" id="dislikeBtn">싫어요</button>
+	<div></div>
+	
+</body>
+</html>

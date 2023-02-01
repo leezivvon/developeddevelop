@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script type="text/javascript">
+
+	// ex) a03_select.html를 만들고 h2로 색상이라고 표시하고 클릭 시 클릭한 것만 노랑색이라고 표시하세요 
+
+	$(document).ready(function(){
+		$("h2").text("색상")
+		$("h2").click(function(){
+			
+			// 다중의 내용 중 클릭한 DOM지정 $(this) //여기서는 클릭한 h2를 가리킴
+			// $(객체).css("css속성", "속성값")
+			$(this).text("노랑").css("background","yellow")
+			/*
+			$(this).text("노랑")
+			$(this).css("background","yellow")
+			*/
+			
+		});
+		
+	});
+</script>
+</head>
+<body>
+
+	<h2></h2>
+	<h2></h2>
+	<h2></h2>
+	<h2></h2>
+	<h2></h2>
+	
+</body>
+</html>

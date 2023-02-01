@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >	
+
+<!-- 4. mapper클래스 -->
+
+<mapper namespace="a01_diexp.mybatis.dao.A02_ExpDao"> <!-- 공통mybatis -->
+
+	
+	
+</mapper>   
+		

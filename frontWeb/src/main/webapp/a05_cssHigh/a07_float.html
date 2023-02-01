@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		float:right;
+		border:2px solid black;
+		width:50px; height:50px;
+		text-align:center;
+		padding:45px;
+		/* margin:1em; */
+	}
+	
+/*
+# 화면에서 보이지않게 처리
+1. visibility:hidden;
+*/
+	h3.cls01{
+		visibility:hidden;
+		/* 공간은 비워놓음 */
+	}
+	h3.cls02{
+		display:none;
+		/* 공간도 빼버림 */
+	}
+	
+	/*
+	ex) 사과 바나나 포도를 출력하되 사과와 바나나는 각각 visibility, display를 통해서 보이지 않게 처리하세요
+	*/
+	img{width:200px; height:200px; float:right;}
+	img#apple{visibility:hidden; }
+	img#banana{display:none;}
+	
+	img:active{display:none;}
+	/*
+	img:active{visibility:hidden;}
+	img#apple{visibility:hidden;}
+	img#banana{display:none;}
+	
+	*/
+	
+</style>
+</head>
+<body>
+	<!-- ex) a07_float설정으로 새로운 페이지 만들어 안녕하세요 각각 문자를 div로 만들어 
+			 float옵션을 통해 반대로 나오게 처리해보세요
+			 요세하녕안 -->
+	<h3>화면처리내용1</h3>		 
+	<h3 class="cls01">화면처리내용2</h3>		 
+	<h3>화면처리내용3</h3>	
+	<h3 class="cls02">화면처리내용4</h3>	
+	<h3>화면처리내용5</h3>		 
+	<div>안</div>		 
+	<div>녕</div>		 
+	<div>하</div>		 
+	<div>세</div>		 
+	<div>요</div>	
+	
+	<img id="apple" src="/a00_img/apple.jpg" width="100px" height="100px"/><br>	 
+	<img id="banana" src="/a00_img/banana.jpg" width="100px" height="100px"/><br> 
+	<img src="/a00_img/grape.jpg" width="100px" height="100px"/>	 <br>
+
+	
+</body>
+</html>

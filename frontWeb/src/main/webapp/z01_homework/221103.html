@@ -1,0 +1,244 @@
+<!-- 
+2022-11-03
+[1단계:개념] 1. form의 속성을 예제와 함께 기술하세요.
+[1단계:개념] 2. form 데이터 전송시 사용하는 method속성의 속성값 get/post방식의 차이를 예제를 통해서 기술하세요.
+[1단계:확인] 3. 구매할 도서명과 출판사 도서가격을 입력하고 post방식으로 전송하고 출력 하세요.
+[1단계:개념] 4. form과 target의 관계를 옵션의 예시에 따라 처리하세요
+[1단계:확인] 5. form/frame 3개씩을 만들어 과일가게, 옷가게, 컴퓨터가게에 해당 frame과 jsp 파일을 만들어 입력 정보 각각 전송하세요.
+[1단계:개념] 6. input의 type의 속성에 따른 특징을 기술하세요
+[1단계:개념] 7. input의 type의 이외의 속성에 따른 특징을 기술하세요
+[1단계:확인] 8. 로그인 화면을 테이블 안에 자리수를 입력제한을 하고, 테이블에 크기에 맞추어 표현하세요.
+[1단계:확인] 9. input의 속성을 적절하게 이용하여 테이블 안에 form 요소객체를 만들어 회원등록 폼을 만들어 보세요.
+                (회원아이다, 패스워드/패스워드확인, 이름, 메일주소, 주소, 성별, 자기소개서 )
+[1단계:확인] 10. datalist를 활용하여 커피점에서 커피의 종류를 표시하고, 주문갯수를 1~10까지 표시하여 
+                 버튼클릭시, 주문한 내용을 서버에 요청값으로 처리되게 하세요. 
+[1단계:개념] 11. 버튼의 종류를 형식에 따라 분류하여 에제를 만드세요     
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>20221103 과제</h2>
+<!-- 
+1
+속성
+1) name : 폼의 이름을 지정
+2) action
+	1) 폼 데이터를 처리할 웹 서버 응요프로그램(jsp, php, asp 등등)	으로 요청값을 서버단(백엔드)에서 받을 수 있다
+	2) submit 버튼을 클리하면 브라우저는 action에 지정한 웹 서버 응용프로그램을 실행한다
+	3) method 속성
+		1) 폼 데이터를 웹 서버로 전송하는 방식
+		2) default : get 방식으로 설정하지 않으면 이방식인데 url 주소창에 요청값을 key=value 형식으로 보이게 한다	
+		   post	   : 설정을 하면 url 주소창에는 보이지 않지만 내부적으로 요청값ㅇ을 key=value 형식으로 전송한다	
+					 요청값이 많고 보이지 않게 처리할 때 주로 사용된다
+	4) target	: frame 단위나 새로운 윈도우 창에 전송할 때 frame 처리 시 설정했던 옵션을 활용해서 처리한다
+		   		  프레임명, _top, _parent, _blank					   
+	5) enctype	: 폼 데이터를  웹서버로 전송할 때 암호화 방식이 필요한 경우에 사용된다
+		   		  파일 전송할 때도 binary데이터를 보내야되기에 이 부분을 속성을 설정한다   	
+		   		  
+2.
+method : 폼 데이터를 웹 서버로 전송하는 방식
+전송 방식 내용
+	get 방식	: url 주소창에 요청값을 key=value 형식으로 보이게 한다	
+	post방식	: 설정을 하면 url 주소창에는 보이지 않지만 내부적으로 요청값을 key=value 형식으로 전송한다	
+			  요청값이 많고 보이지 않게 처리할 때 주로 사용된다
+				   		    
+-->
+<!-- 3 -->
+	<h3>3번(post)</h3>
+	<h4>구매할 도서 정보 입력</h4>
+	<form action="221103sjsp.jsp" method="post" >
+		도서명<input type="text" name="btitle" placeholder="책이름"/>
+		출판사<input type="text" name="publisher" placeholder="출판사"/>
+		도서가격<input type="text" name="bprice" placeholder="도서가격"/>
+		<input type="submit" value="등록">
+	</form><br>
+<!-- 4 -->
+<!-- 5 -->
+	<h3>5번</h3>
+	<h4>과일가게 폼 제출</h4>
+	<form action="221103sjsp.jsp" method="post" target="frame01">
+		과일명 <input type="text" name="fname">
+		가격 <input type="text" name="fprice">
+		<input type="submit" value="제출">
+	</form><br>
+
+	<h4>옷가게 폼 제출</h4>
+	<form action="221103sjsp.jsp" method="post" target="frame01">
+		품명 <input type="text" name="clname">
+		가격 <input type="text" name="clprice">
+		<input type="submit" value="제출">
+	</form><br>
+	
+	<h4>컴퓨터가게 폼 제출</h4>
+	<form action="221103sjsp.jsp" method="post" target="frame01">
+		기기명 <input type="text" name="comname">
+		가격 <input type="text" name="comprice">
+		<button type=submit>제출</button>
+	</form><br>
+	<iframe name="frame01"
+			srcdoc="<h4>가게 폼 제출 결과</h4>"
+			width="30%" height="200">	
+	</iframe>
+	
+<!-- 
+6 
+input 태그의 type 속성
+text 	: 한 줄 텍스트 입력 창 
+password: 암호 입력을 위한 한 줄 텍스트 입력 창
+button	: 단순 버튼
+hidden	: 데이터는 보이지 않지만 전송할 필요가 있을 때 활용
+image	: 이미지 버튼
+checkbox: 체크박스(다중선택) []
+radio	: 라디오박스(단일선택) ()
+file	: 파일 선택
+image	: 이미지 버튼
+month|week|date|time|datatime-local : 년,월,일,시간 등의 입력창
+number|range : 스핀 버튼과 슬라이드바로 편리한 숫자 입력창
+color 	: 색상 선택 창
+email|url|tel|search : 이메일, url, 전화번호, 검색키워드 등 형식 검사 기능을 가진 텍스트 입력 창
+submit	: form 전체 데이터를 서버에 전송하는 버튼
+reset 	: form 전체 데이터를 입력 중, 초기화가 필요할 때, 클릭 시 초기화 처리 버튼
+
+
+7.
+input의 type의 이외의 속성
+1. select 태그 :선택 형식으로 처리할 수 있는 요소 객체
+	기본형식
+	<select name="">
+		<option selected value=""></option>
+		<option value=""></option>	
+2. button :버튼 모양 요소객체
+	기본 형식
+	<button type="button|submit|reset">버튼의 레이블</button>
+	주의) button 태그의 default가 submit이라서 설정하지 않고 버튼을 클릭하면 서버로 전송되어 모든 데이터가 초기화
+3. textarea :여러줄 텍스트 입력 창	
+	기본 형식
+	<textarea cols="10" rows="20"></textarea>
+-->
+<!-- 8,9 -->
+	<h3>8,9번</h3>
+	<h4>회원등록</h4>
+	<form action="221103sjsp.jsp" method="post" >
+		<table>
+			<col width="30%">
+			<col width="70%">
+			<tbody>
+				<tr><th>아이디</th>
+					<td><input type="text" name="id" maxlength="10" size="20" placeholder="apple01"></td></tr>
+				<tr><th>패스워드</th>
+					<td><input type="password" name="pw" maxlength="10" size="20" placeholder="password"></td></tr>
+				<tr><th>이름</th>
+					<td><input type="text" name="yname" maxlength="10" size="20" placeholder="박보검"></td></tr>
+				<tr><th>주소</th>
+					<td><input type="text" name="address" maxlength="10" size="20" placeholder="서울시행복구"></td></tr>
+				<tr><th>메일주소</th>
+					<td><input type="email" name="e-adrs" maxlength="20" size="20" placeholder="apple01@google.com"></td></tr>
+				<tr><th>성별</th>
+					<td><input type="checkbox" name="sex" value="여"></td></tr>
+				<tr><th>자기소개서</th>
+					<td><textarea name="intro" cols="20" rows="10" maxlength="100"></textarea></td></tr>				
+				<tr><td colspan="2" style="text-align:right"><a href="#stop01"><input type="submit" value="등록" ></a></td></tr>
+			</tbody>
+		</table>
+	</form>
+	
+<!-- 9 정답 -->
+	<style>
+		table{border-collapse:collapse;}
+		td{border:1px solid black;text-align:center;}
+		th{background-color:beige;}
+		input, textarea{width:95%;}
+	</style>
+
+	<h3>9번 정답 풀이</h3>
+	<h2 align="center">회원 가입</h2>
+	<from>
+	<table cellpadding="5px" align="center" width="70%" border>
+		<col width="30%">
+		<col width="70%">
+		<tbody>
+			<tr>
+				<th>아이디</th>
+				<td><input type="text" name="id" maxlength="20" placeholder="아이디를 입력(1~20)"/></td>
+			</tr>
+			<tr>
+				<th>패스워드</th>
+				<td><input type="password" name="pass" maxlength="16" placeholder="비밀번호를 입력(8~16)"/></td>
+			</tr>
+			<tr>
+				<th>패스워드 확인</th>
+				<td><input type="password" name="passFrm" maxlength="16" placeholder="비밀번호 확인 입력"/></td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" name="name" maxlength="20" placeholder="이름 입력(1~20)"/></td>
+			</tr>
+			<tr>
+				<th>성별</th>
+				<td><input type="text" name="sex" maxlength="20" placeholder="성별 입력" list="sexs"/>	
+					<datalist id="sexs">
+						<option value="여자">
+						<option value="남자">
+					</datalist></td>
+			</tr>
+			<tr>
+				<th>메일주소</th>
+				<td><input type="text" name="email" maxlength="20" placeholder="XXX@XXX.com형식 입력"/></td>
+			</tr>
+			<tr>
+				<th>주소</th>
+				<td><textarea name="address" rows="2" placeholder="주소 입력"></textarea></td>
+			</tr>
+			<tr>
+				<th>자기소개서</th>
+				<td><textarea name="intro" rows="10" placeholder="자기소개서 입력"></textarea></td>
+			</tr>
+			<tr><td colspan="2" align="right"><button>회원 등록</button></td></tr>
+			<!-- button은 submit이 default -->
+		</tbody>
+	</table>
+	</from>
+<!-- 10 -->
+	<h3>10번</h3>
+	<h4>별다방</h4>
+	<form>
+		커피종류<input type="text" name="coffeek" list="coffeelist">
+		주문개수<input type="text" name="order" list="orderlist">
+		<datalist id="coffeelist">
+			<option value="hot 아메리카노">
+			<option value="ice 아메리카노">
+			<option value="hot 커피라떼">
+			<option value="ice 커피라떼">
+			<option value="hot 바닐라라떼">
+			<option value="ice 바닐라라떼">
+			<option value="초콜렛칩프라푸치노">
+		</datalist>
+		<datalist>
+			<option value="1">
+			<option value="2">
+			<option value="3">
+			<option value="4">
+			<option value="5">
+			<option value="6">
+			<option value="7">
+			<option value="8">
+			<option value="9">
+			<option value="10">
+		</datalist>
+	</form>
+
+<!-- 
+11  
+버튼을 만드는 형태
+1) <input type="button|reset|submit|image" value="버튼의 문자열">
+		type="image"의 경우 src="이미지url"설정
+2) <button type="button|reset|submit">버튼의 문자열</button>
+-->
+
+</body>
+</html>

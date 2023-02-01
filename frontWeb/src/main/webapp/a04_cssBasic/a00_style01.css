@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/* 배경 설정 */
+body{
+	background-color:tomato;
+	color:white;
+	margin-left:30px;
+	margin-right:30px;
+}

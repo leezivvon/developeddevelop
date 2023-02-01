@@ -1,0 +1,5 @@
+@charset "UTF-8";
+/* 글자 정렬 */
+h3{text-align:center;}
+
+/*  여기다 color 설정하면 여기가 우선적용 */

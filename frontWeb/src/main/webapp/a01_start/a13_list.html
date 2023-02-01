@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  
+# 리스트 만들기
+1. 3가지 종류의 리스트
+	1) 순서 있는 리스트(ordered list) - <ol></ol>
+	2) 순서 없는 리스트(unordered list) - <ul></ul>
+	3) 정의 리스트(definition list) - <dl></dl>
+2. 위 리스트에 포함되어 처리되는 리스트 아이템
+	1) <li></li> : 항목내용을 사이에 입력
+	2) <li> : 닫는 태그를 </li>를 생략해도 처리가 된다
+3. ol의 속성
+	1) type : 1, A, a, I, i로 li의 리스트에 앞에 정렬 문자를 포함해서 처리해준다
+	2) start : 시작하는 문자를 지정해준다			
+-->
+	<h2>라면을 끓이는 순서(정렬 형식 A)</h2>
+	<ol type="A">
+		<li>물을 끓인다</li>
+		<li>라면과 스프를 넣는다
+		<li>파를 썰어 넣는다
+		<li>5분 후에 먹는다		 
+	</ol><br>
+	
+	<h2>라면을 끓이는 순서(정렬 형식 1)</h2>
+	<ol type="1" start="3">
+		<li>물을 끓인다</li>
+		<li>라면과 스프를 넣는다
+		<li> 파를 썰어 넣는다
+		<li> 5분 후에 먹는다		 
+	</ol><br>
+	
+	<h2>라면을 끓이는 순서(정렬 형식 I)</h2>
+	<ol type="I">
+		<li>물을 끓인다</li>
+		<li>라면과 스프를 넣는다
+		<li> 파를 썰어 넣는다
+		<li> 5분 후에 먹는다		 
+	</ol><br>
+<!--  
+ex) 웹프로그램의 언어별 배우는 순서를 ol을 통하여 처리하되 1001부터 나오게 하세요
+	html, css, jsp, 스프링프레임웍
+-->	
+	<h2>웹프로그래밍 배우는 순서</h2>
+	<ol type="1" start="1001">
+		<li> html </li>
+		<li> css
+		<li> js
+		<li> jsp
+		<li> 스프링프레임웍
+	</ol><br>
+	
+<!--  
+4. ul 속성 : 번호나 순서가 없는 type에 지정한 특수문자로 출력
+	1) type 
+		disc : 기본설정
+		square : 사각형 모양
+		circle : 둥근 모양
+		
+	ps) ul의 list와 a href를 중복하여 css로 설정하여 이미지와 link를 처리할 때가 많다
+		<ul>
+			<li><a href="">로그인</a>	
+			<li><a href="">상품1</a>	
+			<li><a href="">상품2</a>	
+			<li><a href="">관리자</a>	
+-->
+	<h2>내가 좋아하는 음식</h2>
+	<ul>
+		<li>감자탕</li>
+		<li>삼겹살</li>
+		<li>떡볶이</li>
+	</ul>
+	<ul type="circle">
+		<li>곱창</li>
+		<li>훠궈</li>
+		<li>샤브샤브</li>
+	</ul>
+	
+	<h2>내가 좋아하는 음식</h2>
+	<ul type="square">
+		<li>파스타</li>
+		<li>스테이크</li>
+		<li>라자냐</li>
+	</ul>
+	
+<!-- ex) 가고 싶은 여행지 세군데 정렬처리 안되는 리스트 출력 -->	
+	<h3>가고 싶은 여행지</h3>
+	<ul type="circle">
+		<li>태국</li>
+		<li>하와이</li>
+		<li>스위스</li>
+	</ul><br>
+
+	<h2>중첩리스트 만들기</h2>
+	<h3>내가 사는 이유</h3>
+	<hr>
+	<ul>
+		<li>좋아하는 음식도 많고
+			<ul>
+				<li>삼겹살
+				<li>곱창
+				<li>떡볶이
+				<li>육회	
+			</ul>
+		<li>라면조낸잘끓임
+			<ol>
+				<li>물을 끓인다
+				<li>접시에 계란을 풀어놓는다
+				<li>스프와 면을 넣는다
+				<li>계란을 풀고 뚜껑을 닫고 기다린다
+				<li>후루루구루루루ㅜㄱ
+			</ol>
+		<li>여름에는 풀빌라가고</li>
+		<li>겨울에는 바다가고</li>
+	</ul>
+<!-- 
+ex) 오라클, 자바, html 관련 도서를 검색하서 해당 도서의 세부 목차 3개확인하여 중첩리스트로 처리
+-->
+	<h3>오라클/자바/html 관련도서</h3>
+	<hr>
+	<ul type="square">
+		<li> 오라클-
+			<ol type="i">
+				<li> 데이터베이스개요
+				<li> select문
+				<li> DML
+			</ol>
+		<li> 자바-java의 정석
+			<ol type="1">
+				<li> 자바란
+				<li> 자바개발환경구축하기
+				<li> 자바로 프로그램작성하기
+			</ol>
+		<li> html
+			<ol type="a">
+				<li> 웹개발시작하기
+				<li> 웹개발환경만들기
+				<li> html기본문서만들기
+			</ol>
+	</ul>	
+</body>
+</html>

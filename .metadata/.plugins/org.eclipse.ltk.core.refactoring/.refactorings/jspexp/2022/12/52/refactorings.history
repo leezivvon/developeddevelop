@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;jspexp/src/main/webapp/a01_javascript/a07_ajax/a02_callAynchData.html&apos; to &apos;a02_callSynchData.html&apos;" description="Rename resource &apos;a02_callAynchData.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/a01_javascript/a07_ajax/a02_callAynchData.html" name="a02_callSynchData.html" stamp="1671409664170" updateReferences="true"/>
+</session>

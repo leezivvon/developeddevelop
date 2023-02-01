@@ -1,0 +1,103 @@
+<!-- 
+2022-11-21
+[1단계:확인] 1. [js] 가변매개변수 arguments를 활용하여 가변적으로 구매 정보를 매개변수로 처리하여 출력하게 하세요.
+[1단계:확인] 2. [js] ... 가변매개변수에 따라 등록할 물건의 이름 1/2/3개 다른 매개변수로 설정하여 하단에 p태그로 클릭시 마다 처리되게 하세요
+[1단계:확인] 3. [js] default 가변매개변수를 활용하여 사원번호, 사원명, 부서번호를 클릭시 마다, 처리하는 내용을 하단에 테이블로 추가 하여 출력하세요
+               login(), login(7780) login(7880,'오길동') login(8000,'이영자','인사')
+[1단계:확인] 4. [js] 화살표 함수를 활용하여 사칙연산을 처리 및 출력하세요.
+[1단계:확인] 5. [js] 키오스크 메뉴판(3가지)과 동일하게 메뉴가 나오고 +/-에 따라서 갯수가 선택되게 하여
+               아래에 메뉴내용과 총금액이 나오게 처리하세요.
+[1단계:확인] 6. [jsp] jsp에서 숫자형 데이터가 요청값이 없더라도 숫자형 데이터가 에러 나지 않게 할려고 한다.
+                 아래 화면을 입력값이 없더라도 전송시 에러 발생하지 않게
+                첫번째 숫자 : [   ]
+                두번째 숫자 : [   ]  [합산]
+               1) javascript 단 처리 부분
+               2) jsp 처리 부분을 나누어서 처리하세요
+[1단계:확인] 7. [jsp] script의 declare를 활용하여, 입력값이 70이상 일때, 합격 그외 불합격 처리하는 기는
+            메서드를 선언하고, expression으로 호출하여 처리하세요.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+<style type="text/css">
+/*
+
+*/
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+<!-- 1-->
+	<h2 onclick="prod01('아이스아메리카노') ">아이스아메리카노</h2>
+	<h2 onclick="prod01('아이스카페라떼') ">카페라떼</h2>
+	<h2 onclick="prod01('초콜렛칩프라푸치노') ">초콜렛칩프라푸치노</h2>
+	<p id="coffee01"></p><br>
+<!-- 2 -->
+	<h2 onclick="prod02( '아메리카노(hot) ' )">아메리카노(hot)</h2>
+	<h2 onclick="prod02( '아메리카노(hot)', '카페라떼(hot)' )">아메리카노(hot), 카페라떼(hot) </h2>
+	<h2 onclick="prod02( '아메리카노(hot)', '카페라떼(hot)', '바닐라라떼(hot)' )">아메리카노(hot), 카페라떼(hot), 바닐라라떼(hot) </h2>
+	<p id="coffee02"></p><br>
+<!-- 3 -->
+	<h2 onclick="login()">사원정보(무)</h2>
+	<h2 onclick="login(7780)">사원번호</h2>
+	<h2 onclick="login(7880,'오길동')">사원번호,사원명</h2>
+	<h2 onclick="login(8000,'이영자','인사')">사원번호, 사원명, 부서명</h2>
+	<table>
+		<tr><td>
+	</table>
+	<!-- 4 -->
+	<h2 onclick="this.innerText=calcu(713,349)">713*349</h2>
+
+	<!-- 5 -->
+	<h2>메뉴판</h2>
+	<h3 onclick="menu(9000,'돈까스김치나베')">돈까스김치나베</h3>
+	<h3 onclick="menu(8000,'등심돈까스')">등심돈까스</h3>
+	<h3 onclick="menu(10000,'우동정식')">우동정식(우동+돈까스)</h3>
+	<h3 id="menu05"></h3>
+	
+	
+</body>
+<script type="text/javascript">
+// 1
+// 아래에 선언해야 출력
+var p = document.querySelector("#coffee01")
+p.innerHTML=""
+function prod01(){
+	var order=""
+	for( var idx in arguments ){
+		order+=arguments[idx]+"  "
+	}
+	p.innerHTML+=order
+}
+//2
+var p02 = document.querySelector('#coffee02')
+function prod02(...coffee){
+	p02.innerHTML+=coffee;
+}
+
+//3
+function login(empno=0000, ename="김아무개", dname="OO부"){
+	var login = document.querySelector("td")
+	login.innerHTML += "사원번호_"+empno+"  사원명_"+ename+"  부서명_"+dname+"</td></tr><tr><td>" // 왜 td가 분리가 안될까.,
+}
+
+// 4
+const calcu = (num01, num02) => num01*num02
+
+//5
+function menu(...menus){
+	var tot=0;
+	for( var pay of menus){
+		tot +=
+	}
+}
+
+//6
+
+</script>
+</html>

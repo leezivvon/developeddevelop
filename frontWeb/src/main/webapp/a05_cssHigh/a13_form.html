@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 폼 꾸미기
+1. 글자 색상 지정
+	input[type-text]{color:red}
+2. 테두리 만들기
+	input[type-text]{
+		border:2px solid skyblue;
+		border-radius:5px;
+	}	
+3. 마우스 올라올 때
+	input[type-text]:hover{
+		background:aliceblue;
+	}	
+5. 포커스를 받을 때
+	input:focus{
+		font-size:120%;
+	}	
+*/
+	label{
+		display:block;
+		padding:10px;  /* 이제 <br>키가 필요 없음 */	
+	}
+	label span{
+		display:inline-block;
+		width:90px;
+		text-align:right;
+		padding:10px;
+	}
+	input, textarea{
+		color:blue;
+		border:2px solid skyblue;
+		border-radius:5px;
+	}
+	input:hover, textarea:hover{
+		background:aliceblue;
+	}
+	input[type=text]:focus, input[type=email]:focus, textarea:focus{
+		font-size:120%;
+	}
+	input[type=password]:focus{
+		size:150%;
+		color:gray;
+	}
+	
+	/*
+	ex) 로그인 화면을 만들되 focus와 border-radius를 적용하여 출력하세요
+	*/
+	/* 정답 */
+	#loginForm label{
+		display:block;
+		padding:5px;
+	}
+	#loginForm label span{
+		display:inline-block;
+		width:40%;
+		text-align:center;
+		padding:5px;
+		background:aliceblue;
+	}
+	#loginForm input{
+		color:navy;
+		border:2px solid skyblue;
+		border-radius:5px;
+	}
+	#loginForm input[type=text]:focus, input[type=password]:focus{
+		font-size:120%;
+	}
+
+	
+</style>
+</head>
+<body>
+	<form>
+		<label>
+			<span>이름</span><input type="text" placeholder="Elvis">
+		</label>
+		<label>
+			<span>Email</span><input type="email" placeholder="Elvis@gmail.com">
+		</label>
+		<label>
+			<span>내용</span><textarea placeholder="메세지를 남겨주세요"></textarea>
+		</label>
+		<label>
+			<span></span><input type="submit" value="등록">
+		</label>
+	</form><br>
+	
+	박스 어떻게 만들더라
+	<h3>로그인화면</h3>
+	<form>
+		<label><span>아이디</span><input type="text" placeholder="아이디를 입력하세요"/></label>
+		<label><span>비밀번호</span><input type="password"/></label>
+		<label><input type="submit" value="로그인"></label>
+	</form>
+	
+	<!-- 정답 -->
+	<div id="loginForm">
+		<form>
+			<fieldset>
+				<legend>로그인</legend>
+				<label>
+					<span>아이디</span><input type="text" placeholder="아아디">
+				</label>
+				<label>
+					<span>패스워드</span><input type="password" placeholder="패스워드">
+				</label>
+				<label>
+					<span></span><input type="submit" value="로그인">
+				</label>
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>

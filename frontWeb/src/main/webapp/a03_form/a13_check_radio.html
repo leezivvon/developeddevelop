@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  
+# 선택형 입력 
+체크박스와 라디오박스
+1. <input type="checkbox">
+	1) 체크박스 만들기
+	2) 동일한 이름의 여러개의 다중 선택이 가능하다
+	3) 요청값으로 전달되는 경우, *체크된 값만 전달된다
+		ex) 
+		 <input type="text" name="name" value="홍길동"/>
+		 <input type="text" name="name" value="김길동"/>
+		 <input type="text" name="name" value="신길동"/>
+		 <input type="checkbox" name="fruit" value="사과">사과
+		 <input type="checkbox" name="fruit" value="바나나" checked>바나나
+		 <input type="checkbox" name="fruit" value="딸기" checked>딸기
+		 <input type="submit">
+		 	submit버튼을 클릭 시  
+		 	name=홍길동&name=김길동&name=신길동&fruit=바나나&fruit=딸기   //text는 다 전달됨
+		 
+2. <input type="radio">
+	1) 라디오박스 만들기
+	2) 동일한 name으로 설정하면 하나만 선택이 되어진다
+		-하나의 그룹 형성
+	3) 여러개의 name에 동일한 값이 설정되는 경우 check된 단일 값이 요청으로 전달 된다
+3. 기본 형식
+	<input type="checkbox|radio"
+				name="요소이름" value="요소값" checked>
+	1) value : 폼 요소가 선택된 상태일 때 웹서버에  전송되는 값
+	2) checked : 이 속성이 있으면 초기에 선택 상태로 출력				
+-->
+	<h2>먹고 싶은 거 모두 체크하세요</h2>
+	<form>
+		짜장면 <input type="checkbox" name="menu" value="짜장면">,
+		짬뽕 <input type="checkbox" name="menu" checked value="짬뽕">, <!-- 초기에 선택된 상태 -->
+		탕수육 <input type="checkbox" name="menu" value="탕수육"><br>
+		<input type="submit"/>
+	</form><br>
+<!-- ex) 가고 싶은 여행지를 form에 만들어 동일한 이름으로 설정하여 check로 처리되게 하세요 -->
+	<h2>가고 싶은 여행지</h2>
+	<form>
+		 <input  type="checkbox" name="travel" value="하와이" />하와이  |
+		 <input type="checkbox" name="travel" value="발리"/>발리   |
+		 <input type="checkbox" name="travel" value="방콕"/>방콕   |
+		 <input type="checkbox" name="travel" value="스위스">스위스   |<br>
+		<input type="submit"/>	
+	</form><br>
+
+
+	<h2>사는 곳을 check하세요</h2>
+	<form>
+		<input type="radio" name="part" checked value="국내"> 국내 |
+		<input type="radio" name="part" value="국외"> 국외<br>
+		<input type="radio" name="loc" value="서울"> 서울 |
+		<input type="radio" name="loc" checked value="경기"> 경기 |
+		<input type="radio" name="loc" value="강원"> 강원 |
+		<input type="radio" name="loc" value="충청"> 충청 |
+		<input type="radio" name="loc" value="전라"> 전라 |
+		<input type="radio" name="loc" value="경상"> 경상 |
+		<input type="radio" name="loc" value="제주"> 제주 |
+		<input type="submit">
+	</form>
+	<!-- name기준으로 단일 선택하여 check되게 하면 그 check된 값을 전송한다 
+		 part=국내&loc=경기 -->
+	
+<!-- 
+ex) 성별과 오늘의 점심메뉴를 단일 선택할 수 있게 처리
+-->	
+	<h2>오늘의 점심메뉴</h2>
+	<form>
+		<input type="radio" name="sex" checked value="여성"> 여성 
+		<input type="radio" name="sex" value="남성"> 남성<br>
+		<input type="radio" name="menu" value="부대찌개"> 부대찌개 |
+		<input type="radio" name="menu" value="만둣국"> 만둣국 |
+		<input type="radio" name="menu" value="중국집"> 중국집 |
+		<input type="radio" name="menu" value="칼국수"> 칼국수 |
+		<input type="submit">
+	</form>
+	
+	
+	
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+   <!--  
+// springweb.a05_mvc.a03_dao.A01_EmpDao
+// public List<Emp> getEmpList(Emp sch)
+    
+    
+    인터페이스를 상속받은 실제 Dao객체를 위 규칙에 생성하는 xml파일
+    -->
+    
+<mapper namespace="springweb.a05_mvc.a03_dao.A01_EmpDao">
+
+	<select id="getEmpList" resultType="emp" parameterType="emp"> 
+		SELECT *
+		FROM emp100
+		WHERE ename LIKE '%'||#{ename}||'%' <!-- property명#{} -->
+		AND job LIKE '%'||#{job}||'%'
+		<if test='mgr != 0'> <!-- 동적쿼리**사용하기 -->
+		and mgr = #{mgr}
+		</if>
+		<if test="deptno!=0">
+		and deptno=#{deptno}
+		</if>
+	</select>
+	
+	
+
+	<select id="empCount" resultType="int">
+		select count(*)
+		from emp100	
+	</select>
+	<select id="empMaxSal" resultType="double"> //메서드명을 id값을 설정
+		select max(sal) msal
+		from emp100	
+	</select>
+	<select id="getEname" resultType="String"> //메서드명을 id값을 설정
+		select ename
+		from emp100
+		where empno=7369
+	</select>
+	
+	
+	
+	<!-- ex -->
+	<select id="getMaxSalByDept" resultType="double">
+		select max(sal) from emp100 where deptno=20
+	</select>
+	<select id="getMaxMgr" resultType="int">
+		select max(mgr) from emp100
+	</select>
+	<select id="getJobByEname" resultType="String">
+		select job from emp100 where ename='WARD'
+	</select>
+	
+	
+	
+	
+
+	
+	<!-- 사원정보 어쩌고(관리) -->
+	<!-- combo box -->
+	<select id="getDeptComb" resultType="dept"> <!--parameterType필요X-->
+		select deptno, dname from dept100
+	</select>
+	<select id="getMgrComb" resultType="code"> 
+		select distinct e.mgr key, m.ename val
+		from emp100 e, emp100 m
+		where e.mgr = m.empno
+	</select>
+	<select id="getJobComb" resultType="string"> <!--문자열 지원하고 있음-->
+		select distinct job from emp100
+	</select>
+	
+	
+	
+</mapper>    

@@ -1,0 +1,16 @@
+package springweb.a05_mvc.a01_controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class A02_DeptController {
+	//@Autowired
+	//서비스단
+	
+	//http://localhost:7080/springweb/myDeptList.do
+	@RequestMapping("myDeptList.do");
+	public String deptList() {
+		
+	}
+	
+}

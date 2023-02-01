@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;springweb/src/main/webapp/a02_vue/a00_templateVue&apos;" deleteContents="false" description="Delete resource &apos;springweb/src/main/webapp/a02_vue/a00_templateVue&apos;" element1="/springweb/src/main/webapp/a02_vue/a00_templateVue" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1675153014164"/>
+</session>

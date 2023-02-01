@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# 테이블의 기본 속성
+<table 속성="속성값"...>
+
+1. border : 테이블의 cell의 굵기를 설정한다
+	- 설정하지 않으면 cell 자체가 나타나지 않음
+2. width/height : 테이블의 넓이와 높이를 처리해준다	
+	단위 pt, px, %
+		%는 브라우저 전체화면대비 
+3. <col width=""> : column단위의 넓이를 처리해준다
+4. align : 전체 화면 대비 이 테이블의 정렬 위치
+ps) width 속성은 기본적으로 px, pt 단위 등으로 설정하기도 하고 % 상대범위단위로 설정한다
+	table : 전체화면대비 상대적 크기 설정
+5. *cellpadding(보더와 글자사이간격), cellspacing(내부 보더의 굵기)	
+
+# 테이블은 일반적으로 css로 border-collapse옵션을 통해서 2층 보더를 없애는 경우 다른 옵션들이 의미가 없는 경우가 많은데
+  cellpadding은 보더와 글자사이의 간격을 적절하게 처리할 필요가 있다 
+-->
+	<table border="1" width="200" height="100">
+	<caption></caption>
+		<col width="50%">
+		<col width="25%">
+		<col width="25%">
+		<tr><td>물건명</td><td>가격</td><td>개수</td></tr>
+	</table><br>
+	
+<!--  
+ex) 2X2 테이블을 만들고 넓이와 높이는 200/200으로 처리
+	각 cell안에서 과일명4개를 입력하고 간격은 동이라게 되게 처리
+-->	
+	<table border="2" width="200" height="200">
+		<caption>과일명</caption>
+		<col width="50%">
+		<tr align="center"><td>복숭아</td><td>수박</td></tr>
+		<tr align="center"><td>포도</td><td>감</td></tr>
+	</table>
+	
+<!-- 
+1. td속성
+	td의 요소를 보통 cell이라고 하는 데 cell을 병합시켜 설정할 때 사용하는 옵션이다
+	col :컬럼
+	span : 확장
+
+	1) colspan : 열을 합칠 때 사용된다
+	   colspan="2" : 열을 합친 개수를 속성값으로 설정
+	2) rowspan : 행을 합칠 때 사용된다
+	   rowspan="2" : 행을 합친 개수를 속성값으로 설정
+	css옵션
+	1. td{text-align:center;color:yellow;background-color:navy;
+		  border:1px solid blue;} 
+	2. <td style="text-align:right">	    
+	   
+	# 병합이 필요할 시 처리순서
+	1. 우선 기본 @@X@@ 셀을 만들어 출력
+	2. 병합할 td에 옵션을 colspan/rowspan을 처리하고
+	3. 이로인해 필요없는 td를 삭제 처리한다   
+	   
+-->	
+	<table border="2" width="300" height="300">
+		<caption>과일명</caption>
+		<col width="25%"><col width="25%">
+		<col width="25%"><col width="25%">
+		<tr><td colspan="2">복숭아</td><td>바나나</td><td rowspan="3">체리</td></tr>
+		<tr><td rowspan="2">복숭아</td><td>수박</td><td>바나나</td></tr>
+		<tr><td>감</td><td>참외</td></tr>
+		<tr><td colspan="4">포도</td></tr>
+	</table>
+	
+		<table border="1" width="200" height="200">
+		<caption>중앙cell합치기</caption>
+		<col width="25%"><col width="25%">
+		<col width="25%"><col width="25%">
+		<tr><td></td><td></td><td></td><td></td></tr>
+		<tr><td></td><td colspan="2" rowspan="2"></td><td></td></tr>
+		<tr><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td></tr>
+	</table>
+
+<!--  
+ex1) 2X2 테이블 만들고 상단의 셀을 합치고 출력하세요
+ex2) 2X2 테이블 만들고 왼쪽 2개 셀을 합치고 출력하세요
+ex3) 3X3 테이블 만들고 중앙에 있는 3개의 셀을 합치고 출력
+ex4) 3X3 테이블 만들고 가장 왼쪽에 있는 3개의 셀을 세로로 합치고 출력
+-->
+
+<!-- 1 -->
+	<table border="2" width="200" height="200">
+	<caption>예제1</caption>
+	<col width="50%">
+	<tr><td colspan="2">삼겹살</td></tr>
+	<tr><td>소곱창</td><td>곱창전골</td></tr>
+	</table><br>	
+<!-- 2 -->
+	<table border="2" width="200" height="200">
+	<caption>예제2</caption>
+	<col width="50%">
+	<tr><td rowspan="2">소곱창</td><td>곱창전골</td></tr>
+	<tr><td>야채곱창</td></tr>
+	</table>
+<!-- 3 -->
+	<table border="2" width="300" height="300">
+	<caption>예제3</caption>
+	<col width="3/100%">
+	<col width="3/100%">
+	<col width="3/100%">
+	<tr><td>훠궈</td><td>회</td><td>초밥</td></tr>
+	<tr><td colspan="3">탕수육</td></tr>
+	<tr><td>동파육</td><td>깐쇼새우</td><td>멘보샤</td></tr>
+<!-- 4 -->
+	<table border="2" width="300" height="300">
+	<caption>예제4</caption>
+	<col width="3/100%">
+	<col width="3/100%">
+	<col width="3/100%">
+	<tr><td rowspan="3">훠궈</td><td>회</td><td>초밥</td></tr>
+	<tr><td>짜장면</td><td>누룽지탕</td></tr>
+	<tr><td>깐쇼새우</td><td>멘보샤</td></tr>
+	
+	
+	
+</body>
+</html>

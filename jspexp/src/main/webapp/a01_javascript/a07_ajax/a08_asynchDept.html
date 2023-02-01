@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+</head>
+<body>
+	<!--  
+	# 비동기식으로 DB와 연동해서 요청값을 전다하는 ajax 처리 순서
+	1. 화면구성 / form하위객체 선언
+	2. 사용할 DOM 선언
+		1) value
+		2) 이벤트 처리할 내용(onclick, onkeyup(event.keyCode)...)
+	3. 이벤트 핸들러 함수 선언
+		1) query string을 만들기(*)
+			서버에 보낼 query string(key=value&key2=value2)
+		2) ajax 처리할 내용
+			객체 생성
+			open 설정
+			보내기
+			onreadystatechange=function(){ //익명함수처리
+				조건(상태 처리)
+					xhr.responseText
+			}	
+	4. 데이터를 처리할 jsp화면/json구성 
+		1) 요청값 받기
+		2) DB연결 및 결과처리	
+	-->
+
+	
+	<h2>부서정보</h2>
+	<table>
+		<col width="30%">
+		<tr><th>부서명</th><td><input type="text" name="dname"/></td></tr>
+		<tr><th>부서번호</th><td><input type="text" name="deptno"/></td></tr>
+		<tr><th>부서위치</th><td><input type="text" name="loc"/></td></tr>
+		<tr><td colspan="2"><input type="button" id="schBtn" value="검색"/></td></tr>
+	</table>
+	<div id="container"></div>
+	
+</body>
+<script type="text/javascript">
+v
+/*
+# 처리 순서
+1. DOM 객체 선언(대상 객체, 검색 객체)
+2. 검색 요청값 처리 메서드 선언(공통) : 페이지와 요쳥값을 queryString으로 만드는 공통 메서드
+3. ajax처리 이벤트 핸들러 공통메서드
+	1) XMLHttpRequest 객체 생성
+	2) 서버 호출
+	3) 비동기 처리기능 메서드 선언
+4. 이벤트 및 이벤트 핸들러 선언
+	1) 공통 검색 메서드 선언
+	2) 이벤트에 이벤트 핸들러 할당
+ 
+*/
+	var dnameOB = document.querySelector("[name=dname]")
+	var deptnoOB = document.querySelector("[name=deptno]")
+	var locOB = document.querySelector("[name=loc]")
+	// var schArr = document.querySelectorAll(".sch")
+	var schBtn = document.querySelector("#schBtn")
+	var div = document.querySelector("#container")
+	div.innerHTML=""
+	
+	// 이벤트 및 이벤트 핸들러 선언
+	dnameOB.onkeyup=function(){
+		if(event.keyCode==13) schQuery()
+	}
+	
+	deptnoOB.onkeyup=function(){
+		if(event.keyCode==13) schQuery()
+	}
+	locOB.onkeyup=function(){
+		if(event.keyCode==13) schQuery()
+	}
+	schBtn.onclick=schQuery;
+	
+	//  ajax처리 이벤트 핸들러 공통메서드
+	function schQuery(){
+		var qstr = "?dname="+dnameOB.value+"&deptno="+deptnoOB.value+"&loc="+locOB.value
+		loadData(qstr)
+	}
+	function loadData(qstr){
+		var xhr = new XMLHttpRequest()
+		xhr.open("get", "z07_DeptList.jsp"+qStr, true)//비동기 방식으로 화면로딩
+		xhr.send()
+		// 비동기 이벤트선언 및 핸들러 할당
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4 && xhr.status==200){
+				div.innerHTML=xhr.responseText
+			}
+		}		
+	}
+	
+	
+	/*
+	schArr.forEach(function(sch){
+		sch.onkeyup=function(){
+			if(event.keyCode==13) //eneter입력시
+				search()
+		}
+	})
+	schBtn.onclick = search //검색 버튼 클릭 시 //메서드 선언해야됨...머야 
+	
+	function search(){
+		var dname = dnameOB.value
+		var deptno = deptnoOB.value
+		var loc = locOB.value
+		
+		var qStr = "?dname="+dname+"&deptno="+deptno+"&loc="+loc
+		loadData(qStr)
+	}
+	
+	function loadData(qStr){
+		var xhr = new XMLHttpRequest()
+		xhr.open("get", "z07_DeptList.jsp"+qStr, true)//비동기 방식으로 화면로딩
+		xhr.send()
+		// 비동기 이벤트선언 및 핸들러 할당
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+				document.querySelector("#container").innerHTML=xhr.responseText
+			}
+		}		
+	}
+	*/
+
+</script>
+</html>

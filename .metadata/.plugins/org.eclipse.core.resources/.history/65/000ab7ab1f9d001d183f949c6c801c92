@@ -1,0 +1,30 @@
+package a01_diexp.z08_mydb.vo;
+
+public class Emp {
+	private String ename;
+	private int mgr;
+	private double sal;
+	public Emp() {
+		// TODO Auto-generated constructor stub
+	}
+	public String getEname() {
+		return ename;
+	}
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
+	public int getMgr() {
+		return mgr;
+	}
+	public void setMgr(int mgr) {
+		this.mgr = mgr;
+	}
+	public double getSal() {
+		return sal;
+	}
+	public void setSal(double sal) {
+		this.sal = sal;
+	}
+	
+
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+</head>
+<body>
+
+
+	<div id="container"></div>
+	
+	
+</body>
+<script type="text/javascript">
+
+var div = document.querySelector("#container")
+
+// ex) 구매정보 물건명 가격, 개수 설정해서 3개정도 가격기준 정렬/총비용기준 정렬처리
+var show ="<h3>가격기준 정렬-오름차순</h3>"
+//배열
+/*
+var buyinfo =[
+				{name:"탄산수", price:1200, cnt:40},
+				{name:"생수", price:900, cnt:20},
+				{name:"제로콜라", price:980, cnt:10}
+			 ]
+*/
+var buyList = []
+buyList.push({name:"탄산수", price:1200, cnt:40})
+buyList.push({name:"생수", price:900, cnt:20})
+buyList.push({name:"제로콜라", price:980, cnt:10})
+
+
+//가격기준
+//정렬
+buyList.sort(function(left, right){
+	return left.price - right.price; // 가격기준 오름차순
+})
+//출력
+show += "<table>"
+show += "<tr><th>제품명</th><th>가격</th><th>개수</th><th>총계</th></tr>"
+buyList.forEach(function(prod){  //prod가 왜 필요한걸까...........????????????????
+	show += "<tr><td>"+prod.name+"</td><td>"+prod.price+"</td><td>"+prod.cnt+"</td><td>"+prod.price*prod.cnt+"</td><tr>"
+})
+show+="</table>"
+div.innerHTML+=show	
+
+
+//총점기준
+//정렬
+var show ="<h3>총계기준 정렬- 내림차순</h3>"
+buyList.sort(function(left,right){
+	//var tot = price*cnt
+	//return right.tot - left.tot; // 가격기준 내림차순
+	
+	var ltot = left.price*left.cnt
+	var rtot = right.price*right.cnt
+	return rtot - ltot
+})
+//출력
+show += "<table>"
+show += "<tr><th>제품명</th><th>가격</th><th>개수</th><th>총계</th></tr>"
+buyList.forEach(function(prod){
+	show += "<tr><td>"+prod.name+"</td><td>"+prod.price+"</td><td>"+prod.cnt+"</td><td>"+prod.price*prod.cnt+"</td><tr>"
+})
+show+="</table>"
+div.innerHTML+=show
+
+
+	 
+</script>
+</html>

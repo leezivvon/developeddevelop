@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!-- 여기는 base-package -->
+
+	<!-- 1. 사용할(XXXMapper.xml) 패키지명 포함 vo클래스를 alias선언 -->
+	<typeAliases>
+		<typeAlias alias="emp" type="springweb.z01_vo.Emp"/>
+		<typeAlias alias="dept" type="springweb.z01_vo.Dept"/>
+		<typeAlias alias="code" type="springweb.z01_vo.Code"/>
+		
+		<!-- 230127과제 -->
+		<typeAlias alias="member" type="springweb.z01_vo.Member"/>
+		
+		<!-- 230130과제 -->
+		<typeAlias alias="empinit" type="springweb.z01_vo.EmpInit"/>
+		
+		<!-- 230131과제#3 -->
+		<typeAlias alias="salgrade" type="springweb.z01_vo.Salgrade"/>
+	</typeAliases>
+	
+	
+	
+	
+	<!-- 2. 사용 XXX.Mapper.xml을 추가 
+			resource\A01_EmpMapper.xml
+			
+			***dao와 mapper는 1:1***
+	 -->
+		<mappers>
+			<mapper resource="resource/A01_EmpMapper.xml"/>
+			<mapper resource="resource/A02_DeptMapper.xml"/>
+			
+			<!-- 230127과제 -->
+			<mapper resource="resource/Z13_HWMemberMapper.xml"/>
+			
+			<!-- 230131과제 -->
+			<mapper resource="resource/A04_SalMapper.xml"/>
+			
+		</mappers>	
+
+</configuration>

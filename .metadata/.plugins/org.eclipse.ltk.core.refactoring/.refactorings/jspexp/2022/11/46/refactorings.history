@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;jspexp/src/main/webapp/a01_javascript/a01_basice&apos; to &apos;a01_basic&apos;" description="Rename resource &apos;a01_basice&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/a01_javascript/a01_basice" name="a01_basic" stamp="1668065475123" updateReferences="true"/>
+</session>

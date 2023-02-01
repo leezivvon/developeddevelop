@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/a00_com/a01_common.css" rel="stylesheet">
+<style type="text/css">
+/*
+
+*/
+</style>
+<script type="text/javascript">
+/*
+
+*/
+</script>
+</head>
+<body>
+
+	<input type="text" id="in01"/>
+	<div id="container"></div>
+	
+	<table id="tab01" height="300px">
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>4</td><td>5</td><td>6</td></tr>
+		<tr><td>7</td><td>8</td><td>9</td></tr>
+	</table>
+	
+	
+</body>
+<script type="text/javascript">
+/*
+
+*/
+
+var in01 = document.querySelector("#in01")
+var div = document.querySelector("#container")
+/*
+//this.onkeyup=function(){ //this : 현재 화면 window객체를 지칭 //무슨 말인지 모르겠어!!!!!!
+in01.onkeyup=function(){
+	console.log("##")
+	console.log(event.keyCode)
+	div.innerText=event.keyCode; //아스키코드 나옴
+}
+*/
+
+
+var tds = document.querySelectorAll("#tab01 td")
+/*
+// 무슨 키를 눌러도 노란색 배경 왔다갔다 할 수 있음
+tds[4].style.backgroundColor="yellow"
+var cIdx = 0;
+this.onkeyup=function(){ // this : 현재 화면 window객체를 지칭
+	for(var idx=0;idx<tds.length;idx++){
+		tds[idx].style.backgroundColor="" //초기화 	
+	}
+	//tds[cIdx%9].style.backgroundColor="yellow" >>계속 돌아 반복해서
+	tds[cIdx].style.backgroundColor="yellow"
+	cIdx++
+	console.log("##")
+	console.log(event.keyCode)
+	div.innerText=event.keyCode;
+}
+*/
+
+
+
+//방향키 아스키 코드 37,38,39
+tds[4].style.backgroundColor="yellow"
+	var cIdx = 0;
+	//this.이벤트 : 전체화면에서 이벤트를 발생
+	this.onkeyup=function(){ // this : 현재 화면 window객체를 지칭
+		for(var idx=0;idx<tds.length;idx++){
+			tds[idx].style.backgroundColor="" //초기화 	
+		}
+		tds[4].style.backgroundColor="yellow"
+	}
+	this.onkeydown=function(){ 
+		if(event.keyCode>=37&&event.keyCode<=40){
+			for(var idx=0;idx<tds.length;idx++){
+				tds[idx].style.backgroundColor="" //초기화 	
+			}
+		}
+		if(event.keyCode==37) tds[3].style.backgroundColor="yellow"
+		if(event.keyCode==38) tds[1].style.backgroundColor="yellow"
+		if(event.keyCode==39) tds[5].style.backgroundColor="yellow"
+		if(event.keyCode==40) tds[7].style.backgroundColor="yellow"
+		tds[cIdx].style.backgroundColor="yellow"
+		cIdx++
+		console.log("##")
+		console.log(event.keyCode)
+		div.innerText=event.keyCode;
+	}
+		
+
+	
+
+
+
+//
+</script>
+</html>

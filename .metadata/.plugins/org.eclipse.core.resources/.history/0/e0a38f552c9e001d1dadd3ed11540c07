@@ -1,0 +1,21 @@
+package springweb.a02_homwork;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import springweb.z01_vo.Member;
+
+@Service
+public class Z13_HWMemberService {
+	@Autowired
+	private Z13_HWMemberDao dao;
+	
+	public List<Member> getHWMemList(Member sch){
+		if(sch.getName()==null) sch.setName("");
+		if(sch.getAuth()==null) sch.setAuth("");
+		
+		return dao.getHWMemList(sch);
+	}
+}

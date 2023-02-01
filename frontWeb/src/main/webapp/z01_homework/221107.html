@@ -1,0 +1,289 @@
+<!--  
+2022-11-07
+[1단계:개념] 1. 색상 처리 16코드에 대한 설명과 기본 색상 객체의 활용 코드를 기술하세요.
+[1단계:확인] 2. h1를 빨주노초파남보 7가지를 선언하고, 색상 폼에 의해 선택되어 배경색이 변경되게 하세요.
+[1단계:개념] 3. 날짜 처리의 요소객체의 기본 형식을 기술하세요.
+[1단계:확인] 4. 사원의 정보를 아래와 같이 입력하여 다음 페이지에서 출력되게 처리하세요.
+            입사일(년/월/일) : [     ]
+            다음프로젝트(년/@주째) : [     ]
+             회원룸 예약:
+               방번호 : []1~10
+               날짜(년/월/일) :[    ] 
+               시간(@@:@@) : [    ]
+[1단계:확인] 5. 나이에 따른 할인율을 선택해서 놀이 공원 입장료를 처리하세요.
+            기본 입장료:[   ]
+            나이:[   ] ==> number
+            할인율:[    ] ==> %표기
+            [입장]
+[1단계:확인] 6. 회원가입을 일반회원과 관리자를 구분해서 가입화면을 구성(타이틀과 그룹처리)해보세요.
+           일반회원 : 아이디 패스워드 이름 나이 포인트 일반주소 
+           관리자 : 아이디 패스워드 이름 권한 소속사 이메일
+[1단계:개념] 7. css선언 기본 구성요소과 속성 형식을 예제를 통해 기술하세요.
+[1단계:확인] 8. 음악 가사를 카피해와 css3를 통해 여백과 색상이 처리된 화면을 구성하세요.
+[1단계:개념] 9. css선언 형식3가지(현재 페이지, inline, 외부파일)을 기본예제를 통해서 선언하세요.
+[1단계:확인] 10. 외부파일 선언 및 호출로 a00_sytle10.css, a00_sytle11.css에 선언하고
+            해당 파일에서 적용된 냉요을 확인하세요.
+[1단계:개념] 11. css선언의 우선 순위를 예제를 통해 기술하세요.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/* 8번 */
+	pre{
+		background-color:#593C8F;
+		font-size:15px;
+		color:white;
+		text-align:center;
+		margin-left:100px;
+		margin-right:100px;
+	}
+	h2{
+		text-align:center;
+	}
+
+</style>
+
+<link href="/z01_homework/a00_style11.css" type="text/css" rel="stylesheet" ><!-- 절대주소로함해봄 -->
+<style>
+	/* 10번 */
+	@import url(a00_style10.css);
+</style>
+
+</head>
+<body>
+<!-- 
+1 
+색코드
+문자열 또는 rgb 조합형태로 색상을 지원하여 설정할 수 있다
+색코드 처리는 #rrggbb로 각 코드값을 16진수로 0~255가지(00~FF)의 내용을 선택가능하다
+	rr:빨간색
+	gg:초록색
+	bb:파란색
+	
+활용코드 <input type="color" value="#00FF00">
+-->
+<!-- 2 -->
+<form>
+	<h1>2번</h1><br>
+	<h1>빨간색</h1>
+	<h1>주황색</h1>
+	<h1>노란색</h1>
+	<h1>초록색</h1>
+	<h1>파란색</h1>
+	<h1>남색</h1>
+	<h1>보라색</h1><br>
+	
+	빨<input type="color" name="c01" value="red"
+	  		 onchange="document.querySelectorAll('h1')[1].style.background=this.value"/>
+	주<input type="color" name="c02" value="red"
+	  		 onchange="document.querySelectorAll('h1')[2].style.background=this.value"/>
+	노<input type="color" name="c03" value="red"
+	  		 onchange="document.querySelectorAll('h1')[3].style.background=this.value"/>
+	초<input type="color" name="c04" value="red"
+	  		 onchange="document.querySelectorAll('h1')[4].style.background=this.value"/>
+	파<input type="color" name="c05" value="red"
+	  		 onchange="document.querySelectorAll('h1')[5].style.background=this.value"/>
+	남<input type="color" name="c06" value="red"
+	  		 onchange="document.querySelectorAll('h1')[6].style.background=this.value"/>
+	보<input type="color" name="c07" value="red"
+	  		 onchange="document.querySelectorAll('h1')[7].style.background=this.value"/>
+</form>	<br>
+<!-- 2정답 -->
+<h1 align="center">2번-글자색상으로 해보기</h1><br>
+	<h1 align="center">빨간색
+		<input type="color" onchange="document.querySelectorAll('h1')[9].style.color=this.value"/></h1>
+	<h1 align="center">주황색
+		<input type="color" onchange="document.querySelectorAll('h1')[10].style.color=this.value"/></h1>
+	<h1 align="center">노란색
+		<input type="color" onchange="document.querySelectorAll('h1')[11].style.color=this.value"/></h1>
+	<h1 align="center">초록색
+		<input type="color" onchange="document.querySelectorAll('h1')[12].style.color=this.value"/></h1>
+	<h1 align="center">파란색
+		<input type="color" onchange="document.querySelectorAll('h1')[13].style.color=this.value"/></h1>
+	<h1 align="center">남색
+		<input type="color" onchange="document.querySelectorAll('h1')[14].style.color=this.value"/></h1>
+	<h1 align="center">보라색
+		<input type="color" onchange="document.querySelectorAll('h1')[15].style.color=this.value"/></h1><br>
+
+
+
+<!-- 
+3 
+
+시간 정보 입력 <input type="month|week|date|datetime-local">
+속성 및 내용
+month : 년월
+week : 년/몇번째주
+date : 년/월/일
+datetime-local : 해당 나라의 시간   년/월/일/오전,오후/시/분/초/100분의1초
+time : 시/분
+-->
+
+<!-- 4 -->
+<h1>4번</h1>
+<form>
+	입사일(년/월/일) : <input type="date" name="hiredate" value="2022-03-02"><br>
+	다음프로젝트(년/@주째) : <input type="week" name="nextproj" value="2022-W40"><br><br>
+	회원룸 예약: <input type="radio" name="reserv" checked value="예약">예약<br>
+	방번호 : <input type="number" name="roomno" min="1" max="10" step="1" >
+	날짜(년/월/일) :<input type="date" name="rsvdate" value="2022-11-07">
+	시간(@@:@@) :<input type="time" name="rsvtime" value="9:00"><br>
+<input type="submit">	
+</form><br>
+<!-- 4정답 -->
+<h1>4번정답</h1>
+<h1>사원정보</h1>
+<form action="z02_show.jsp">
+	입사일(년/월/일):<input type="date" name="hiredt"/><br>
+	입사일(년/월/일):<input type="week" name="nextProject"/><br>
+	
+	<fieldset>
+		<legend>회의룸 예약</legend>
+		반 번호:<input type="number" name="roomnum" min="1" max="10"><br>
+		날짜(년/월/일):<input type="date" name="meetdate"/><br>
+		시간(시:분):<input type="time" name="meettime"/>
+	</fieldset>
+	<input type="submit"/>
+</form>
+
+
+<!-- 5 -->
+<h1>5번</h1>
+<script type="text/javascript">
+	function chDis(val){
+		document.querySelector("#show").innerText=val;
+	}
+</script>
+<form>
+	기본 입장료: <input type="text" name="fee" value="30000">
+    나이:<input type="number" name="age" min="1" max="100" step="1" value="20">
+    할인율:<input type="range" name="discount" 
+    			 onchange="chDis(this.value)" min="0" max="75" step="15" >
+    	  <span id="show"></span><br>%		 
+    <input type="submit" value="입장"/>
+</form><br>
+<!-- 5번정답 -->
+<h1>5번정답</h1>
+<h1>놀이공원 매표소에서</h1>
+<script>
+	function chRatio(val){
+		document.querySelector("#shDis").innerText=val;
+	}
+	/* innerText : 레이블표시(여기서는 할인율숫자표시)*/
+</script>
+<form>
+	기본 입장료: <input type="number" name="fee" value="50000"/><br>
+    나이:<input type="number" name="age" min="1" max="100" step="1" value="20"/><br>
+    할인율:<input type="range" name="discount" min="0" max="100" step="5"
+    			 onchange="chRatio(this.value)" value="0"/> <span id="shDis"></span><br>%		 
+    <input type="submit" value="입장"/>
+</form>
+
+
+
+
+
+<!-- 6 -->
+<h1>6번</h1>
+<h3>회원가입</h3>
+<form>
+	<fieldset>
+		<legend>일반회원</legend>
+		아이디:<input type="text"><br>
+		비밀번호:<input type="password"><br>
+		이름:<input type="text"><br>
+		나이:<input type="number"><br>
+		포인트:<input type="text"><br>pt
+		주소:<input type="text">
+	</fieldset>
+	
+	<fieldset>
+		<legend>관리자</legend>
+		아이디:<input type="text"><br>
+		비밀번호:<input type="password"><br>
+		이름:<input type="text"><br>
+		권한:<input type="text"><br>
+		소속사:<input type="text"><br>
+		이메일:<input type="text" placeholder="honkildong01@hanmail.net">
+	</fieldset>
+</form><br>
+
+<!-- 
+7 
+
+css3 스타일 시트의 구성요소 : span, 프로퍼티, 프로퍼티값
+css스타일 시트 만드는 방법
+1) style /style태그에 스타일 시트 설정
+2) style 속성에 스타일 시트 작성	- <input style="text-align:center;">
+3) 스타일 시트 별로 파일로 작성	- <link> 태그나 @import로 불러 사용	   		
+-->
+
+
+<!-- 8 -->
+<h2>8번</h2>
+<pre>
+때 이른 봄 몇 송이 꺾어다<br>
+너의 방 문 앞에 두었어
+긴 잠 실컷 자고 나오면
+그때쯤엔 예쁘게 피어 있겠다
+별 띄운 여름 한 컵 따라다
+너의 머리맡에 두었어
+금세 다 녹아버릴 텐데
+너는 아직 혼자 쉬고 싶은가 봐
+너 없이 보는 첫 봄이, 여름이
+괜히 왜 이렇게 예쁘니
+다 가기 전에 널 보여줘야 하는데
+음-음, 꼭 봐야 하는데
+내게 기대어 조각잠을 자던
+그 모습 그대로 잠들었구나
+무슨 꿈을 꾸니?
+깨어나면 이야기해 줄 거지?
+언제나의 아침처럼
+음-, 음-
+빼곡한 가을 한 장 접어다
+너의 우체통에 넣었어
+가장 좋았던 문장 아래 밑줄 그어
+나 만나면 읽어줄래?
+새하얀 겨울 한숨 속에다
+나의 혼잣말을 담았어
+줄곧 잘 참아내다가도
+가끔은 철없이 보고 싶어
+새삼 차가운 연말의 공기가
+뼈 틈 사이사이 시려와
+움츠려 있을 너의 그 마른 어깨를
+꼭 안아줘야 하는데
+내게 기대어 조각잠을 자던
+그 모습 그대로 잠들었구나
+무슨 꿈을 꾸니?
+깨어나면 이야기해 줄 거지?
+언제나의 아침처럼
+음-, 음-
+</pre>
+
+<!--
+ 9 
+ 
+css스타일 시트 만드는 방법
+1) 현재페이지 	: style /style태그에 스타일 시트 설정
+2) inline 	: style 속성에 스타일 시트 작성 	<input style="text-align:center;">
+3) 외부파일	: 스타일 시트 별로 파일로 작성 	<link> 태그나 @import로 불러 사용	   			
+ -->
+ 
+<!-- 10 -->
+	<h1>10번</h1>
+	<h3>오잉 나오나?</h3>
+<!-- 
+11 
+태그의 적용 가능 스타일 우선 순위
+1) inline으로 해당 태그에 선언된 style속성이 최우선 순위
+2) 한페이지당 선언한 <style>에 선언된 css
+3) 외부파일로 선언한 <link href="외부파일"> 선언한 태그
+4) 브라우저의 디폴트 스타일
+-->	
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+package springweb.a05_mvc.a03_dao;
+
+public interface A02_DeptDao {
+	// 메서드 선언
+	public String myDeptList();
+}

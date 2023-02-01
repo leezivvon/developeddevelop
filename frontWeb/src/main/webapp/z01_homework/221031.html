@@ -1,0 +1,155 @@
+
+<!-- 
+2022-10-31
+[1단계:개념] 1. 웹프로그램에서 front end와 back end의 차이점을 기술하세요
+[1단계:개념] 2. 기본태그, css, js의 역할을 기본 예제를 통하여 기술하세요.
+[1단계:개념] 3. 웹브라우저와 웹서버의 역할을 기술하세요.
+[1단계:확인] 4. https://browse.gmarket.co.kr/search?keyword=사과
+           위 url 주소의 구성요소가 의미하는 바를 기술하고, 이것이 localhost로 전환되었을 처리 내용을 기술하세요.
+[1단계:확인] 5. web05 웹 다이나믹 프로젝트  톰켓웹서버(5001,5080 )를 설정하여 초기화면 안녕하세요 로딩되서
+         웹서버환경과 프로젝트를 연동하여 실행하고, 캡쳐해서 과제 제출시 함께 발송하세요.
+[1단계:개념] 6. html의 구성요소에 대하여 계층별(dtd, 핵심 구조 태그)로 설명하세요.
+[1단계:개념] 7. 특수 문자(&@@@;)형식으로 사용하는 코드에 대하여 기술하세요.
+[1단계:확인] 8. 지금 해야할 학습 사이트를 오늘 배운 구성 코드로 작성해보세요
+           database, java, html 타이틀, 내용설명, 핵심 키워드 색상 변경, p, div, span 활용
+[1단계:개념] 9. 인라인 태그와 블럭태그를 분류하고 특징을 기술하세요.
+[1단계:개념] 10. 메타태그란 무엇인가 해당내용을 기술하세요.
+[1단계:확인] 11. 이미지를 링크하여 화면에 출력하세요.
+
+1. 
+front end 프로그래밍은 서버에서 html을 client로 전달된 후 그 이후에 실행되는 프로그램으로 html/css/js 등이 있다
+back end 프로그래밍은 자바 등 컴파일이 필요하여 서버 내에서 실행하는 프로그래밍으로 java, jsp, servlet 등이 있다
+컴파일이 되고 실행되는 위치가 서버나 브라우저냐에서 차이가 있다
+
+2.
+//정답
+기본태그 : html 화면을 구성하는 기본적인 태그 내용으로 건물로 보면 뼈대역할을 한다
+		 h1, table, p, div, br 등 기본 태그에서 지원하는 화면내용을 처리한다
+		 기본태그는 색상이 지원되지 않고 크기/정렬 등록 한정된 범위 내에서만 처리할 수 있다
+		 ex) <h1 align="center">안녕</h1>
+css	: 위 기본 태그에 색상/정렬/크기 등 세부적으로 확장된 옵션으로 화면 구현을 할 수 있게 도와준다
+	  h1{background-color:yellow;color:blue;}
+	  <p style="color:blue;">인라인으로 css가 적용된 p 태그</p>
+js	: 위 기본태그와 css 태그를 바탕으로 동적인 이벤트를 처리하거나 프로그램적인 로직으로 화면구현이 필요할 때 객체 기념으로 처리하는 것을 말한다
+	  이벤트핸들러 함수, 이벤트, 대상객체(DOM)
+	  function call(obj){
+	  	obj.style.color="red";
+	  } 
+	  <h1 onclick="call(this)">빨간색으로 변신</h1>		 		 
+html
+css
+js
+
+3. 
+- 웹 서버
+클라이언트(ex.웹브라우저)에게 웹 페이지를 주는 역할을 한다, 웹 프로그래밍으로 서비스를 지원하는 컴퓨터
+tomcat, apache, IIS 와 웹프로그램이 연동하여 서비스를 지원
+- 웹 브라우저
+인터넷 익스플로러, 파이어 폭스, 크롬, 사파리와 같은 웹 브라우저
+
+ 4.
+ https://browse.gmarket.co.kr/search?keyword=사과 
+ 
+ https://browse.gmarket.co.kr    : 도메인 기관에서 발급한 도메인 주소
+ http   : 통신프로토콜(네트워크 언어 중 하나) html을 효과적으로 전송하기 위한 네트워크 언어
+ keyword=사과  : 서버에 특정한 페이지에 요청값을 넘길 때 사용하는 방식, query string 이라고 한다
+ >> localhost
+ http://localhost:7080/prj01/keyword=사과 
+ 
+//정답
+https : 프로토콜을 의미한다. 사람이 대화를 하면서 의사 전달을 하듯이 네트워크에서 서버와 클라이언트는 패킷이라는 전송단위로 데이터를 전송하는데,
+		이 때 용도에 따라서 효과적으로 전송하는 방식을 선택할 때 사용된다
+		마치, 미국에서 영어를 프랑스에서 불어를 쓰듯이 전송하는 방식도 규격을 만들어 다른 규격으로 전송하는 것을 말한다
+		http는 html을 가장 효과적으로 전송하는 전송규약이다. https 마지막에 보안(security)가 붙어서 기존 http에서 보안을 강화한 전송규약이다
+
+browse.gmarket.co.kr : 도메인 주소를 의미하고 이것을 도메인기관에서 발급하여 실제 특정한 서버의 주소에 해당하는 ip주소(242.214.72.31 형식)가 변경이 된다.
+					   보다 ip주소를 간편하게 기억하여 해당 주소에 있는 서버의 내용을 접근하게 하기위한 것이다.
+					   이 도메인 주소에는 보통 8080이라는 default 포트가 포함되어 있기도 하다	
+					   위 내용은  https://242.214.72.31:8080/search?keyword=사과 형식으로 변환되어 처리된다 
+
+search?	: 특정페이지를 지정한다. 원하는 페이지 즉 자원을 호출하여 처리하게 한다
+?keyword=사과 : 서버에 요청값을 보내는 형식이다. key=value형식으로 서버에 해당 자원에 데이터를 전송하여 전송된 데이터를 기준으로 
+			   서버 안에서 프로그램적으로 로직을 처리하거나 DB접근을 하여 처리결과를 다시 화면으로 client(브라우저)에게 보낸다
+
+이것이 localhost로 전환되었을 처리 내용 >> http://localhost:8080/search?keyword=사과
+									localhost : 현재 소스확인할 때
+
+
+6. 
+html 구성요소  
+요소/태그/속성/변수 -- 그 중 핵심 태그
+<!DOCTYPE html>    : dtd로 사용할 문서 html에 대한 정의 부분으로 태그의 기능과 속성에ㅔ 대하여 정의해 놓은 것
+<html>    : html 최상위 태그, 하위에 head와 body를 가지고 있다
+<meta charset="UTF-8">  : html안에 한글에 대한 encoding을 설정한다
+<title>   : 브라우저 상단의 타이틀을 표시할 때 사용
+<body>	  : 태그명/속성명/속성값의 형식으로 처리된다
+<footer>  : 하단부분에 대한 처리
+
+7.특수 문자(&@@@;)형식으로 사용하는 코드에 대하여 기술하세요.
+&lt;  - less than  		:  < 출력
+&gt;  - greater than 	:  > 출력
+&nbsp;   : 공백처리
+
+9. 
+블록태그  	: 항상 새 라인에서 시작하여 출력하며 양 옆에 다른 콘텐트를 배치하지 않고 한 라인 독점 사용
+		  가장 많이 사용되는 태그 : div
+		  그 외 :  p, h1, ul
+인라인태그 : 블록 속에 삽입되어 블록의 일부로 출력
+		  가장 많이 사용되는 인라인 태그 : span
+		  그 외 :	  strong, a, img
+
+10. 
+메타태그 : html 페이지에 대한 메타 데이터를 담기 위한 태그
+* 메타데이터 : 데이터를 설명하는 데이터   
+			ex) 사진 데이터의 메타데이터 : 사진 찍은 장소, 시간
+ -->
+ 
+ <!-- 8.
+  
+<%@ page language ="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>-->
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>학습 사이트</title>
+	</head>
+	
+	<!--
+	<%
+		String start = "시작";
+	%>
+	-->
+	
+	<body>
+	<!-- <h2>공부 ${"바로"} <%=start %></h2> -->
+	
+	
+	<h3 title ="가 보자고">html</h3>
+	<hr>
+	<div style="background-color:charcoal;padding:30px;">
+	<p align ="center">
+	<span style="color:white">html</span>은 웹사이트의 모습을 구현하기 위한 마크업언어로
+	프로그래밍 언어가 아니라 마크업 정보를 표현하는 마크업언어이다
+	</p>
+	</div>
+	<p align="center">
+	 ~ html 쉽다고 한 사람 나와 ~
+	</p><br><br>
+	<!-- 
+	p : 문단을 처리할 때 사용되는 개념
+	div : 특정 단위를 구역을 처리하여 나타낼 때 사용된다
+		  쇼핑몰 사이트를 기준으로 하면 상단에 네비게이션 바 구역, 하단에 메인화면 구역, 
+		  하단 쇼핑몰 관련 주소나 전화번호 등과 같은 정보가 있는 구역을 나누어서 처리할 때 활용된다
+	 -->
+
+	
+
+	<!-- 11 -->
+	<h3>이미지 출력</h3>
+	<img src="data:image/jpeg;base64,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"
+	   width="200"   height="200">
+	
+	
+	</body>
+</html>

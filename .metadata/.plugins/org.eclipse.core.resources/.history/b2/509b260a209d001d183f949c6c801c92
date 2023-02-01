@@ -1,0 +1,13 @@
+package a01_diexp.z08_mydb;
+
+import java.util.List;
+
+import a01_diexp.z08_mydb.vo.Salgrade;
+
+// 5. 
+// a01_diexp.z08_mydb <<컨테이너로
+// a01_diexp.z08_mydb.A02_ExpDao <<공통mybatis로
+
+public interface A02_ExpDao {
+	public List<Salgrade> getSalgrade();
+}

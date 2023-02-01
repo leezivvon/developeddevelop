@@ -1,0 +1,5 @@
+# 파이썬 환경 설정
+1. anaconda : 기본 파이썬 + 빅데이터 관련 모듈
+2. eclipse
+	pydev : 플러그인 프로그램 >>Help>Eclipse Marketplace
+	연동 설정
